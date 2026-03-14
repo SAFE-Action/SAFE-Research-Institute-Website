@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos | SAFE Research Institute</title>
+  <meta name="description" content="Watch seminars, science communication videos, how-to guides, and expert interviews from the SAFE Research Institute.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== TOP MARQUEE BAR ===== -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Tracking the intersection of clinical integrity and state fiscal health.</span>
+    <span>State Trend Analysis: Highly prescriptive regulatory environments may correlate with capital migration and workforce instability.</span>
+    <span>Comparative Review: Stable licensure frameworks may support professional retention and long-term economic growth.</span>
+    <span>Quantifying the fiscal impact of prescriptive regulatory frameworks across 50 states.</span>
+    <span>Our designations highlight potential indicators relevant to health infrastructure and fiscal planning.</span>
+    <span>Tracking the intersection of clinical integrity and state fiscal health.</span>
+    <span>State Trend Analysis: Highly prescriptive regulatory environments may correlate with capital migration and workforce instability.</span>
+    <span>Comparative Review: Stable licensure frameworks may support professional retention and long-term economic growth.</span>
+    <span>Quantifying the fiscal impact of prescriptive regulatory frameworks across 50 states.</span>
+    <span>Our designations highlight potential indicators relevant to health infrastructure and fiscal planning.</span>
+  </div>
+</div>
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="site-header">
+  <nav class="nav-wrapper">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">S</div>
+      <div class="nav-logo-text">SAFE <span class="logo-highlight">RESEARCH</span></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="seminars.html">Seminars</a>
+      <a href="blog.html">Blog</a>
+      <a href="videos.html">Videos</a>
+      <a href="policies.html">Policies</a>
+      <a href="education.html">Education</a>
+      <a href="index.html#why">About</a>
+      <a href="index.html#taskforce" class="nav-cta">Join a Task Force</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="legal-hero" style="padding:100px 0 80px;">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;margin-bottom:20px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px;height:16px;">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      Science Communication Hub
+    </div>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:20px;">Videos</h1>
+    <p style="color:rgba(255,255,255,0.7);max-width:680px;margin:0 auto;font-size:1.1rem;line-height:1.8;">Seminar recordings, science communication features, how-to guides, and expert interviews from the SAFE Research Institute community.</p>
+  </div>
+</section>
+
+<!-- ===== CATEGORY FILTER TABS ===== -->
+<section class="section" style="padding:48px 0 0;">
+  <div class="container">
+    <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Filter videos by category">
+      <button class="category-tab active" data-category="All" role="tab" aria-selected="true">All</button>
+      <button class="category-tab" data-category="Seminars" role="tab" aria-selected="false">Seminars</button>
+      <button class="category-tab" data-category="Science Communication" role="tab" aria-selected="false">Science Communication</button>
+      <button class="category-tab" data-category="How-To Guides" role="tab" aria-selected="false">How-To Guides</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO GRID ===== -->
+<section class="section" id="videos" style="padding-top:48px;">
+  <div class="container">
+    <div class="video-grid" id="videoGrid">
+      <!-- Video cards loaded dynamically by js/videos.js -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="video-empty-state" id="videoEmptyState" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="video-empty-state-icon">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      <h3>No videos available yet</h3>
+      <p>Check back soon for seminar recordings, how-to guides, and expert interviews from our research community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIDEO MODAL ===== -->
+<div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Video player">
+  <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+  <div class="video-modal-content">
+    <button class="video-modal-close" id="videoModalClose" aria-label="Close video">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="video-modal-title" id="videoModalTitle"></div>
+    <div class="video-modal-iframe-wrap" id="videoModalIframeWrap">
+      <!-- YouTube iframe inserted dynamically -->
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="conflict-of-interest.html">Conflict of Interest</a>
+        <a href="gift-acceptance.html">Gift Acceptance &amp; Independence Policy</a>
+      </div>
+      <div class="footer-tax">
+        &copy; 2026 Science and Freedom for Everyone. All Rights Reserved. Tax ID 41-2910356
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script type="module" src="js/videos.js"></script>
+</body>
+</html>

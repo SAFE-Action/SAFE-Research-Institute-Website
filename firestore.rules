@@ -1,0 +1,75 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ——— Helper Functions ———
+
+    // Check if the request is from an authenticated user
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Check if the authenticated user is an admin
+    function isAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Check if the authenticated user is the document's author
+    function isAuthor(authorId) {
+      return isSignedIn() && request.auth.uid == authorId;
+    }
+
+    // ——— Articles Collection ———
+    // Public can read published articles.
+    // Authenticated users can create articles (they become the author).
+    // Only the author or an admin can update an article.
+    // Only admins can delete articles.
+    match /articles/{articleId} {
+      allow read: if resource == null || resource.data.status == 'published';
+      allow create: if isSignedIn();
+      allow update: if isAuthor(resource.data.authorId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ——— Policies Collection ———
+    // Public can read published policies.
+    // Only admins can create, update, or delete policies.
+    match /policies/{policyId} {
+      allow read: if resource == null || resource.data.status == 'published';
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ——— Videos Collection ———
+    // Public can read all videos.
+    // Only admins can create, update, or delete videos.
+    match /videos/{videoId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ——— Users Collection ———
+    // Users can read and create their own document.
+    // Only admins can update or delete any user document.
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      allow update, delete: if isAdmin();
+    }
+
+    // ——— Volunteers Collection ———
+    // Authenticated users can create their own volunteer application.
+    // Applicants can read their own application.
+    // Only admins can read all applications, update status, or delete.
+    match /volunteers/{volunteerId} {
+      allow create: if isSignedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == 'pending';
+      allow read: if isSignedIn()
+        && (resource.data.uid == request.auth.uid || isAdmin());
+      allow update, delete: if isAdmin();
+    }
+  }
+}

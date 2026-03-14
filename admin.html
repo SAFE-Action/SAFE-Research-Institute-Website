@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | SAFE Research Institute</title>
+  <meta name="description" content="Admin dashboard for managing the SAFE Research Institute website content, users, and submissions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+</head>
+<body>
+
+<!-- ===== TOP MARQUEE BAR ===== -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Tracking the intersection of clinical integrity and state fiscal health.</span>
+    <span>State Trend Analysis: Highly prescriptive regulatory environments may correlate with capital migration and workforce instability.</span>
+    <span>Comparative Review: Stable licensure frameworks may support professional retention and long-term economic growth.</span>
+    <span>Quantifying the fiscal impact of prescriptive regulatory frameworks across 50 states.</span>
+    <span>Our designations highlight potential indicators relevant to health infrastructure and fiscal planning.</span>
+    <span>Tracking the intersection of clinical integrity and state fiscal health.</span>
+    <span>State Trend Analysis: Highly prescriptive regulatory environments may correlate with capital migration and workforce instability.</span>
+    <span>Comparative Review: Stable licensure frameworks may support professional retention and long-term economic growth.</span>
+    <span>Quantifying the fiscal impact of prescriptive regulatory frameworks across 50 states.</span>
+    <span>Our designations highlight potential indicators relevant to health infrastructure and fiscal planning.</span>
+  </div>
+</div>
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="site-header">
+  <nav class="nav-wrapper">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">S</div>
+      <div class="nav-logo-text">SAFE <span class="logo-highlight">RESEARCH</span></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="seminars.html">Seminars</a>
+      <a href="blog.html">Blog</a>
+      <a href="videos.html">Videos</a>
+      <a href="policies.html">Policies</a>
+      <a href="education.html">Education</a>
+      <a href="index.html#why">About</a>
+      <a href="index.html#taskforce" class="nav-cta">Join a Task Force</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ===== AUTH GATE (shown when not signed in) ===== -->
+<section class="section" id="authGate" style="display:none;">
+  <div class="container">
+    <div class="auth-gate">
+      <div class="auth-gate-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+          <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+        </svg>
+      </div>
+      <h2>Admin Panel</h2>
+      <p>Sign in with your Google account to access the SAFE Research Institute administration dashboard. Admin privileges are required.</p>
+      <button class="google-btn" id="googleSignInBtn">
+        <svg width="20" height="20" viewBox="0 0 48 48">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+        Sign in with Google
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACCESS DENIED (signed in but not admin) ===== -->
+<section class="section" id="accessDenied" style="display:none;">
+  <div class="container">
+    <div class="access-denied">
+      <div class="auth-gate-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+          <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+        </svg>
+      </div>
+      <h2>Access Denied</h2>
+      <p>Your account does not have administrator privileges. Contact a site administrator if you believe this is an error.</p>
+      <button class="btn btn-sm btn-dark" id="accessDeniedSignOut">Sign Out</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADMIN DASHBOARD (shown when admin is signed in) ===== -->
+<section class="section" id="adminDashboard" style="display:none;">
+  <div class="container">
+
+    <!-- User Bar -->
+    <div class="writer-user-bar" id="adminUserBar">
+      <div class="writer-user-info">
+        <img id="adminUserPhoto" src="" alt="" class="writer-user-avatar">
+        <div>
+          <span class="writer-user-name" id="adminUserName"></span>
+          <span class="writer-user-email" id="adminUserEmail"></span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="status-badge status-published">Admin</span>
+        <button class="btn btn-sm btn-dark" id="adminSignOutBtn">Sign Out</button>
+      </div>
+    </div>
+
+    <!-- Admin Tabs -->
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="blog-queue">Blog Queue</button>
+      <button class="admin-tab" data-tab="policy-editor">Policy Editor</button>
+      <button class="admin-tab" data-tab="video-manager">Video Manager</button>
+      <button class="admin-tab" data-tab="users">Users</button>
+      <button class="admin-tab" data-tab="volunteer-queue">Volunteer Queue</button>
+    </div>
+
+    <!-- ===== TAB 1: Blog Queue ===== -->
+    <div class="admin-tab-content active" id="tab-blog-queue">
+      <div class="admin-layout">
+        <div id="pendingArticlesList">
+          <!-- Pending articles loaded dynamically -->
+        </div>
+        <div class="empty-state" id="pendingArticlesEmpty" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="empty-state-icon">
+            <path d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/>
+          </svg>
+          <h3>No pending articles</h3>
+          <p>There are no articles awaiting review at this time.</p>
+        </div>
+
+        <!-- Preview Panel -->
+        <div class="admin-preview" id="articlePreviewPanel" style="display:none;">
+          <div class="admin-preview-header">
+            <h3 id="previewTitle"></h3>
+            <button class="admin-btn-close" id="closePreviewBtn" type="button" aria-label="Close preview">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <path d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          <div class="admin-preview-meta" id="previewMeta"></div>
+          <div class="admin-preview-body" id="previewBody"></div>
+          <div class="admin-actions" id="previewActions">
+            <button class="btn btn-primary" id="approveArticleBtn" type="button">Approve &amp; Publish</button>
+            <button class="btn btn-danger" id="rejectArticleBtn" type="button">Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB 2: Policy Editor ===== -->
+    <div class="admin-tab-content" id="tab-policy-editor">
+      <div class="admin-layout">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <h3 style="font-size:1.2rem;color:var(--navy);margin:0;">Policies</h3>
+          <button class="admin-btn-add" id="addPolicyBtn" type="button">+ Add New Policy</button>
+        </div>
+        <div id="policyTableContainer">
+          <!-- Policy table loaded dynamically -->
+        </div>
+        <div class="empty-state" id="policyTableEmpty" style="display:none;">
+          <h3>No policies found</h3>
+          <p>Click "Add New Policy" to create your first policy document.</p>
+        </div>
+
+        <!-- Policy Edit Form -->
+        <div class="admin-form" id="policyFormContainer" style="display:none;">
+          <h3 id="policyFormTitle">Add New Policy</h3>
+          <form id="policyForm" autocomplete="off">
+            <input type="hidden" id="policyEditId" value="">
+            <div class="admin-form-row">
+              <div class="form-group">
+                <label for="policyTitleInput">Title <span class="required">*</span></label>
+                <input type="text" id="policyTitleInput" class="form-control" placeholder="Policy title" required>
+              </div>
+              <div class="form-group">
+                <label for="policyCategoryInput">Category <span class="required">*</span></label>
+                <select id="policyCategoryInput" class="form-control" required>
+                  <option value="" disabled selected>Select category</option>
+                  <option value="Scope of Practice">Scope of Practice</option>
+                  <option value="Informed Consent">Informed Consent</option>
+                  <option value="Certificate of Need">Certificate of Need</option>
+                  <option value="Public Health Infrastructure">Public Health Infrastructure</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>State Applicability</label>
+              <div class="admin-state-checkboxes" id="stateCheckboxes">
+                <!-- State checkboxes generated by JS -->
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="policySummaryInput">Summary <span class="required">*</span></label>
+              <textarea id="policySummaryInput" class="form-control" rows="3" placeholder="Brief summary of the policy" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="policyBodyInput">Body (Markdown)</label>
+              <textarea id="policyBodyInput"></textarea>
+            </div>
+            <div class="admin-form-row">
+              <div class="form-group">
+                <label for="policyPdfInput">PDF URL</label>
+                <input type="url" id="policyPdfInput" class="form-control" placeholder="https://example.com/policy.pdf">
+              </div>
+              <div class="form-group">
+                <label for="policyStatusInput">Status</label>
+                <select id="policyStatusInput" class="form-control">
+                  <option value="draft">Draft</option>
+                  <option value="published">Published</option>
+                </select>
+              </div>
+            </div>
+            <div class="writer-form-actions" style="display:flex;gap:12px;">
+              <button type="submit" class="btn btn-primary" id="savePolicyBtn">Save Policy</button>
+              <button type="button" class="btn btn-sm btn-dark" id="cancelPolicyBtn">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB 3: Video Manager ===== -->
+    <div class="admin-tab-content" id="tab-video-manager">
+      <div class="admin-layout">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <h3 style="font-size:1.2rem;color:var(--navy);margin:0;">Videos</h3>
+          <button class="admin-btn-add" id="addVideoBtn" type="button">+ Add New Video</button>
+        </div>
+        <div id="videoTableContainer">
+          <!-- Video table loaded dynamically -->
+        </div>
+        <div class="empty-state" id="videoTableEmpty" style="display:none;">
+          <h3>No videos found</h3>
+          <p>Click "Add New Video" to add your first video.</p>
+        </div>
+
+        <!-- Video Edit Form -->
+        <div class="admin-form" id="videoFormContainer" style="display:none;">
+          <h3 id="videoFormTitle">Add New Video</h3>
+          <form id="videoForm" autocomplete="off">
+            <input type="hidden" id="videoEditId" value="">
+            <div class="admin-form-row">
+              <div class="form-group">
+                <label for="videoTitleInput">Title <span class="required">*</span></label>
+                <input type="text" id="videoTitleInput" class="form-control" placeholder="Video title" required>
+              </div>
+              <div class="form-group">
+                <label for="videoUrlInput">YouTube URL <span class="required">*</span></label>
+                <input type="url" id="videoUrlInput" class="form-control" placeholder="https://www.youtube.com/watch?v=..." required>
+              </div>
+            </div>
+            <div class="admin-form-row">
+              <div class="form-group">
+                <label for="videoCategoryInput">Category <span class="required">*</span></label>
+                <select id="videoCategoryInput" class="form-control" required>
+                  <option value="" disabled selected>Select category</option>
+                  <option value="Seminars">Seminars</option>
+                  <option value="Science Communication">Science Communication</option>
+                  <option value="How-To Guides">How-To Guides</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="videoOrderInput">Order Number</label>
+                <input type="number" id="videoOrderInput" class="form-control" placeholder="0" min="0" value="0">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="videoDescInput">Description</label>
+              <textarea id="videoDescInput" class="form-control" rows="3" placeholder="Brief description of the video"></textarea>
+            </div>
+            <div class="writer-form-actions" style="display:flex;gap:12px;">
+              <button type="submit" class="btn btn-primary" id="saveVideoBtn">Save Video</button>
+              <button type="button" class="btn btn-sm btn-dark" id="cancelVideoBtn">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB 4: Users ===== -->
+    <div class="admin-tab-content" id="tab-users">
+      <div class="admin-layout">
+        <h3 style="font-size:1.2rem;color:var(--navy);margin-bottom:24px;">User Management</h3>
+        <div id="userListContainer">
+          <!-- User list loaded dynamically -->
+        </div>
+        <div class="empty-state" id="userListEmpty" style="display:none;">
+          <h3>No users found</h3>
+          <p>No registered users were found in the database.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TAB 5: Volunteer Queue (placeholder structure) ===== -->
+    <div class="admin-tab-content" id="tab-volunteer-queue">
+      <div class="admin-layout">
+        <h3 style="font-size:1.2rem;color:var(--navy);margin-bottom:24px;">Volunteer Applications</h3>
+
+        <!-- Stats Bar -->
+        <div class="admin-stats" id="volStats">
+          <div class="admin-stat">
+            <span class="admin-stat-number" id="volStatPending">0</span>
+            <span class="admin-stat-label">Pending</span>
+          </div>
+          <div class="admin-stat">
+            <span class="admin-stat-number" id="volStatApproved">0</span>
+            <span class="admin-stat-label">Approved</span>
+          </div>
+          <div class="admin-stat">
+            <span class="admin-stat-number" id="volStatRejected">0</span>
+            <span class="admin-stat-label">Rejected</span>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div style="display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;">
+          <div class="form-group" style="margin:0;min-width:180px;">
+            <select id="volStatusFilter" class="form-control">
+              <option value="all">All Statuses</option>
+              <option value="pending" selected>Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+          <div class="form-group" style="margin:0;min-width:200px;">
+            <select id="volTaskGroupFilter" class="form-control">
+              <option value="all">All Task Groups</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Application List -->
+        <div id="volApplicationList">
+          <!-- Volunteer applications loaded dynamically by volunteer-admin.js -->
+        </div>
+
+        <!-- Detail Panel -->
+        <div id="volDetailPanel" style="display:none;">
+          <!-- Volunteer detail loaded dynamically by volunteer-admin.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Confirmation Dialog (used for deletes) ===== -->
+    <div class="admin-confirm-dialog" id="confirmDialog" style="display:none;">
+      <div class="admin-confirm-backdrop" id="confirmBackdrop"></div>
+      <div class="admin-confirm-panel">
+        <h3 id="confirmTitle">Confirm Action</h3>
+        <p id="confirmMessage">Are you sure you want to proceed?</p>
+        <div class="admin-confirm-actions">
+          <button class="btn btn-danger" id="confirmYes" type="button">Delete</button>
+          <button class="btn btn-sm btn-dark" id="confirmNo" type="button">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="conflict-of-interest.html">Conflict of Interest</a>
+        <a href="gift-acceptance.html">Gift Acceptance &amp; Independence Policy</a>
+      </div>
+      <div class="footer-tax">
+        &copy; 2026 Science and Freedom for Everyone. All Rights Reserved. Tax ID 41-2910356
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Blog | SAFE Research Institute</title>
+  <meta name="description" content="Expert contributions from physicians, scientists, and policy analysts on evidence-based public health, regulatory science, and clinical integrity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== TOP MARQUEE BAR ===== -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Tracking the intersection of clinical integrity and state fiscal health.</span>
+    <span>State Trend Analysis: Highly prescriptive regulatory environments may correlate with capital migration and workforce instability.</span>
+    <span>Comparative Review: Stable licensure frameworks may support professional retention and long-term economic growth.</span>
+    <span>Quantifying the fiscal impact of prescriptive regulatory frameworks across 50 states.</span>
+    <span>Our designations highlight potential indicators relevant to health infrastructure and fiscal planning.</span>
+    <!-- Duplicate for seamless loop -->
+    <span>Tracking the intersection of clinical integrity and state fiscal health.</span>
+    <span>State Trend Analysis: Highly prescriptive regulatory environments may correlate with capital migration and workforce instability.</span>
+    <span>Comparative Review: Stable licensure frameworks may support professional retention and long-term economic growth.</span>
+    <span>Quantifying the fiscal impact of prescriptive regulatory frameworks across 50 states.</span>
+    <span>Our designations highlight potential indicators relevant to health infrastructure and fiscal planning.</span>
+  </div>
+</div>
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="site-header">
+  <nav class="nav-wrapper">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">S</div>
+      <div class="nav-logo-text">SAFE <span class="logo-highlight">RESEARCH</span></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="seminars.html">Seminars</a>
+      <a href="blog.html">Blog</a>
+      <a href="videos.html">Videos</a>
+      <a href="policies.html">Policies</a>
+      <a href="education.html">Education</a>
+      <a href="index.html#why">About</a>
+      <a href="index.html#taskforce" class="nav-cta">Join a Task Force</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="legal-hero" style="padding:100px 0 80px;">
+  <div class="container">
+    <div class="section-label" style="justify-content:center;margin-bottom:20px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px;height:16px;">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+      </svg>
+      Expert Contributions
+    </div>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:20px;">Research Blog</h1>
+    <p style="color:rgba(255,255,255,0.7);max-width:680px;margin:0 auto;font-size:1.1rem;line-height:1.8;">Insights and analysis from physicians, scientists, and policy analysts committed to evidence-based discourse on public health, clinical integrity, and regulatory science.</p>
+  </div>
+</section>
+
+<!-- ===== SEARCH & FILTERS ===== -->
+<section class="section" style="padding:48px 0 0;">
+  <div class="container">
+    <div class="blog-filters">
+      <div class="blog-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="blog-search-icon">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="blogSearch" placeholder="Search articles..." aria-label="Search articles" class="form-control">
+      </div>
+      <div class="blog-category-filter">
+        <select id="categoryFilter" class="form-control" aria-label="Filter by category">
+          <option value="All">All Categories</option>
+          <option value="Science">Science</option>
+          <option value="Policy">Policy</option>
+          <option value="Public Health">Public Health</option>
+          <option value="Opinion">Opinion</option>
+          <option value="How-To">How-To</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTICLE GRID ===== -->
+<section class="section" id="articles" style="padding-top:48px;">
+  <div class="container">
+    <div class="blog-grid" id="blogGrid">
+      <!-- Articles loaded dynamically by js/blog.js -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="empty-state-icon">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+      </svg>
+      <h3>No articles published yet</h3>
+      <p>Check back soon for expert contributions from our research community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTICLE MODAL ===== -->
+<div class="article-modal" id="articleModal" aria-hidden="true" role="dialog" aria-label="Article detail">
+  <div class="article-modal-backdrop" id="modalBackdrop"></div>
+  <div class="article-modal-panel">
+    <button class="article-modal-close" id="modalClose" aria-label="Close article">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="article-modal-header">
+      <span class="article-modal-category" id="modalCategory"></span>
+      <h1 id="modalTitle"></h1>
+      <div class="article-modal-meta">
+        <img id="modalAuthorPhoto" src="" alt="" class="article-modal-avatar">
+        <div>
+          <span class="article-modal-author" id="modalAuthorName"></span>
+          <span class="article-modal-date" id="modalDate"></span>
+        </div>
+      </div>
+    </div>
+    <div class="article-content" id="modalBody">
+      <!-- Rendered Markdown content -->
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="conflict-of-interest.html">Conflict of Interest</a>
+        <a href="gift-acceptance.html">Gift Acceptance &amp; Independence Policy</a>
+      </div>
+      <div class="footer-tax">
+        &copy; 2026 Science and Freedom for Everyone. All Rights Reserved. Tax ID 41-2910356
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script type="module" src="js/blog.js"></script>
+</body>
+</html>

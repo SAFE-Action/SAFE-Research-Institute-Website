@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer Onboarding | SAFE Research Institute</title>
+  <meta name="description" content="Join the SAFE Research Institute as a volunteer. Apply to our task forces and help advance scientific literacy and evidence-based public policy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== TOP MARQUEE BAR ===== -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Tracking the intersection of clinical integrity and state fiscal health.</span>
+    <span>State Trend Analysis: Highly prescriptive regulatory environments may correlate with capital migration and workforce instability.</span>
+    <span>Comparative Review: Stable licensure frameworks may support professional retention and long-term economic growth.</span>
+    <span>Quantifying the fiscal impact of prescriptive regulatory frameworks across 50 states.</span>
+    <span>Our designations highlight potential indicators relevant to health infrastructure and fiscal planning.</span>
+    <!-- Duplicate for seamless loop -->
+    <span>Tracking the intersection of clinical integrity and state fiscal health.</span>
+    <span>State Trend Analysis: Highly prescriptive regulatory environments may correlate with capital migration and workforce instability.</span>
+    <span>Comparative Review: Stable licensure frameworks may support professional retention and long-term economic growth.</span>
+    <span>Quantifying the fiscal impact of prescriptive regulatory frameworks across 50 states.</span>
+    <span>Our designations highlight potential indicators relevant to health infrastructure and fiscal planning.</span>
+  </div>
+</div>
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="site-header">
+  <nav class="nav-wrapper">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">S</div>
+      <div class="nav-logo-text">SAFE <span class="logo-highlight">RESEARCH</span></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="seminars.html">Seminars</a>
+      <a href="blog.html">Blog</a>
+      <a href="videos.html">Videos</a>
+      <a href="policies.html">Policies</a>
+      <a href="education.html">Education</a>
+      <a href="index.html#why">About</a>
+      <a href="index.html#taskforce" class="nav-cta">Join a Task Force</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ===== AUTH GATE (shown when not signed in) ===== -->
+<section class="section" id="authGate" style="display:none;">
+  <div class="container">
+    <div class="auth-gate">
+      <div class="auth-gate-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+          <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+        </svg>
+      </div>
+      <h2>Volunteer Onboarding Portal</h2>
+      <p>Sign in with your Google account to complete the volunteer onboarding process and join a SAFE Research Institute task force.</p>
+      <button class="google-btn" id="googleSignInBtn">
+        <svg width="20" height="20" viewBox="0 0 48 48">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+        Sign in with Google
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VOLUNTEER ONBOARDING FORM (shown when signed in) ===== -->
+<section class="section" id="volunteerForm" style="display:none;">
+  <div class="container">
+
+    <!-- User Bar -->
+    <div class="writer-user-bar" id="volUserBar">
+      <div class="writer-user-info">
+        <img id="userPhoto" src="" alt="" class="writer-user-avatar">
+        <div>
+          <span class="writer-user-name" id="userName"></span>
+          <span class="writer-user-email" id="userEmail"></span>
+        </div>
+      </div>
+      <button class="btn btn-sm btn-dark" id="signOutBtn">Sign Out</button>
+    </div>
+
+    <div style="max-width:760px;margin:0 auto;">
+
+      <div style="text-align:center;margin-bottom:40px;">
+        <h2>Volunteer Onboarding Application</h2>
+        <p style="color:var(--steel);margin-top:8px;">Complete all steps below to submit your volunteer application to the SAFE Research Institute.</p>
+      </div>
+
+      <!-- Progress Indicator -->
+      <div class="vol-progress" id="volProgress">
+        <div class="vol-progress-step active" data-step="1">
+          <div class="vol-progress-circle">1</div>
+          <span class="vol-progress-label">Personal Info</span>
+        </div>
+        <div class="vol-progress-connector"></div>
+        <div class="vol-progress-step" data-step="2">
+          <div class="vol-progress-circle">2</div>
+          <span class="vol-progress-label">Experience</span>
+        </div>
+        <div class="vol-progress-connector"></div>
+        <div class="vol-progress-step" data-step="3">
+          <div class="vol-progress-circle">3</div>
+          <span class="vol-progress-label">Commitment</span>
+        </div>
+        <div class="vol-progress-connector"></div>
+        <div class="vol-progress-step" data-step="4">
+          <div class="vol-progress-circle">4</div>
+          <span class="vol-progress-label">Agreement</span>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="volOnboardingForm" autocomplete="off" novalidate>
+
+        <!-- ===== STEP 1: Personal Information ===== -->
+        <div class="vol-step active" id="volStep1">
+          <h3 class="vol-step-title">Step 1: Personal Information</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="volFullName">Full Legal Name <span class="required">*</span></label>
+              <input type="text" id="volFullName" class="form-control" placeholder="Dr. Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="volEmail">Email Address <span class="required">*</span></label>
+              <input type="email" id="volEmail" class="form-control" placeholder="jane@institution.edu" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="volPhone">Phone Number</label>
+              <input type="tel" id="volPhone" class="form-control" placeholder="(555) 123-4567">
+            </div>
+            <div class="form-group">
+              <label for="volLocation">City and State of Residence <span class="required">*</span></label>
+              <input type="text" id="volLocation" class="form-control" placeholder="San Diego, CA" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="volTitle">Professional Title <span class="required">*</span></label>
+              <input type="text" id="volTitle" class="form-control" placeholder="MD, PhD, JD, RN, etc." required>
+            </div>
+            <div class="form-group">
+              <label for="volOrganization">Current Organization / Institution</label>
+              <input type="text" id="volOrganization" class="form-control" placeholder="University of California">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="volLinkedin">LinkedIn Profile URL</label>
+            <input type="url" id="volLinkedin" class="form-control" placeholder="https://linkedin.com/in/yourprofile">
+          </div>
+
+          <div class="form-group">
+            <label for="volResume">Upload CV/Resume <span style="font-weight:400;color:var(--silver);font-size:0.85rem;">(Optional, .pdf .doc .docx, max 1MB)</span></label>
+            <input type="file" id="volResume" class="form-control" accept=".pdf,.doc,.docx" style="padding:10px 18px;">
+          </div>
+
+          <div class="vol-nav">
+            <div></div>
+            <button type="button" class="btn btn-primary" onclick="nextStep()">
+              Next: Experience
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 2: Experience & Task Group ===== -->
+        <div class="vol-step" id="volStep2">
+          <h3 class="vol-step-title">Step 2: Experience &amp; Task Group</h3>
+
+          <div class="form-group">
+            <label for="volTaskGroup">Task Group Preference <span class="required">*</span></label>
+            <select id="volTaskGroup" class="form-control" required>
+              <option value="">-- Select a Task Group --</option>
+              <option value="advocates">Advocates &mdash; Public Outreach and Communications</option>
+              <option value="digital">Digital &mdash; Website, Data, and Technical Infrastructure</option>
+              <option value="experts">Experts &mdash; Legislation Analysis (Invitation may be required)</option>
+              <option value="general">General Volunteer</option>
+            </select>
+          </div>
+
+          <!-- Conditional: Advocates -->
+          <div class="conditional-fields" id="fields-advocates">
+            <div class="form-group">
+              <label for="volOutreachExp">Outreach Experience</label>
+              <textarea id="volOutreachExp" class="form-control" rows="3" placeholder="Describe your experience with public outreach and communications..."></textarea>
+            </div>
+            <div class="form-group">
+              <label style="font-weight:400;display:flex;align-items:center;gap:8px;">
+                <input type="checkbox" id="volPublicSpeaking" style="accent-color:var(--accent);">
+                I have public speaking experience
+              </label>
+            </div>
+          </div>
+
+          <!-- Conditional: Digital -->
+          <div class="conditional-fields" id="fields-digital">
+            <div class="form-group">
+              <label>Technical Skills (select all that apply)</label>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+                <label style="font-weight:400;display:flex;align-items:center;gap:8px;font-size:0.9rem;"><input type="checkbox" name="techSkills" value="Web Development" style="accent-color:var(--accent);"> Web Development</label>
+                <label style="font-weight:400;display:flex;align-items:center;gap:8px;font-size:0.9rem;"><input type="checkbox" name="techSkills" value="Social Strategy" style="accent-color:var(--accent);"> Social Strategy</label>
+                <label style="font-weight:400;display:flex;align-items:center;gap:8px;font-size:0.9rem;"><input type="checkbox" name="techSkills" value="Graphic Design" style="accent-color:var(--accent);"> Graphic Design</label>
+                <label style="font-weight:400;display:flex;align-items:center;gap:8px;font-size:0.9rem;"><input type="checkbox" name="techSkills" value="Data Visualization" style="accent-color:var(--accent);"> Data Visualization</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="volPortfolio">Portfolio URL</label>
+              <input type="url" id="volPortfolio" class="form-control" placeholder="https://yourportfolio.com">
+            </div>
+          </div>
+
+          <!-- Conditional: Experts -->
+          <div class="conditional-fields" id="fields-experts">
+            <div class="form-group">
+              <label for="volLegislativeExp">Legislative Experience</label>
+              <textarea id="volLegislativeExp" class="form-control" rows="3" placeholder="Describe your experience with legislation analysis..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Policy Areas of Interest (select all that apply)</label>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+                <label style="font-weight:400;display:flex;align-items:center;gap:8px;font-size:0.9rem;"><input type="checkbox" name="policyAreas" value="Scope of Practice" style="accent-color:var(--accent);"> Scope of Practice</label>
+                <label style="font-weight:400;display:flex;align-items:center;gap:8px;font-size:0.9rem;"><input type="checkbox" name="policyAreas" value="Informed Consent" style="accent-color:var(--accent);"> Informed Consent</label>
+                <label style="font-weight:400;display:flex;align-items:center;gap:8px;font-size:0.9rem;"><input type="checkbox" name="policyAreas" value="Certificate of Need" style="accent-color:var(--accent);"> Certificate of Need</label>
+                <label style="font-weight:400;display:flex;align-items:center;gap:8px;font-size:0.9rem;"><input type="checkbox" name="policyAreas" value="Public Health Infrastructure" style="accent-color:var(--accent);"> Public Health Infrastructure</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="volExperience">Relevant Experience Summary <span class="required">*</span></label>
+            <textarea id="volExperience" class="form-control" rows="4" placeholder="Summarize your relevant professional experience and qualifications..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="volSkills">Specific Skills or Expertise</label>
+            <textarea id="volSkills" class="form-control" rows="3" placeholder="Any additional skills, certifications, or areas of expertise..."></textarea>
+          </div>
+
+          <div class="vol-nav">
+            <button type="button" class="btn btn-outline" onclick="prevStep()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <button type="button" class="btn btn-primary" onclick="nextStep()">
+              Next: Commitment
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 3: Commitment & Expectations ===== -->
+        <div class="vol-step" id="volStep3">
+          <h3 class="vol-step-title">Step 3: Commitment &amp; Expectations</h3>
+
+          <div class="disclosure-banner" style="margin-bottom:28px;">
+            <strong>Volunteer Commitment Expectations:</strong>
+            <ul style="margin:12px 0 0 20px;list-style:disc;line-height:2;">
+              <li>Minimum commitment of <strong>5 hours per month</strong></li>
+              <li>Weekly meetings: 1st hour is agenda-based, 2nd hour is an optional working session</li>
+              <li>If unable to attend a meeting, you must review the meeting minutes</li>
+            </ul>
+          </div>
+
+          <div class="form-check" style="margin-bottom:24px;">
+            <input type="checkbox" id="volCommitConfirm" required>
+            <label for="volCommitConfirm"><strong>I confirm that I understand and can meet the minimum commitment expectations outlined above.</strong> <span class="required">*</span></label>
+          </div>
+
+          <div class="form-group">
+            <label>Meeting Availability <span class="required">*</span></label>
+            <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+              <label style="font-weight:400;display:flex;align-items:center;gap:8px;">
+                <input type="radio" name="volMeetingAvail" value="both" style="accent-color:var(--accent);" required>
+                Both Meetings (Agenda + Working Session)
+              </label>
+              <label style="font-weight:400;display:flex;align-items:center;gap:8px;">
+                <input type="radio" name="volMeetingAvail" value="agenda" style="accent-color:var(--accent);">
+                Agenda Meeting Only
+              </label>
+              <label style="font-weight:400;display:flex;align-items:center;gap:8px;">
+                <input type="radio" name="volMeetingAvail" value="working" style="accent-color:var(--accent);">
+                Working Session Only
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="volHearAbout">How did you hear about SAFE?</label>
+            <input type="text" id="volHearAbout" class="form-control" placeholder="Referral, social media, web search, etc.">
+          </div>
+
+          <div class="vol-nav">
+            <button type="button" class="btn btn-outline" onclick="prevStep()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <button type="button" class="btn btn-primary" onclick="nextStep()">
+              Next: Agreement
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 4: Integrity Agreement & Signature ===== -->
+        <div class="vol-step" id="volStep4">
+          <h3 class="vol-step-title">Step 4: Integrity Agreement &amp; Signature</h3>
+
+          <p style="color:var(--steel);margin-bottom:16px;">Please carefully read the SAFE Code of Integrity &amp; Confidentiality Agreement below, then confirm your acknowledgments and provide your digital signature.</p>
+
+          <div class="agreement-container">
+            <div class="agreement-text">
+              <h4 style="text-align:center;margin-bottom:8px;">SAFE: Code of Integrity &amp; Confidentiality Agreement</h4>
+              <p style="text-align:center;margin-bottom:4px;"><strong>Organization:</strong> Science And Freedom for Everyone Action (SAFE)</p>
+              <p style="text-align:center;margin-bottom:20px;"><strong>Position:</strong> Volunteer Stakeholder / Task Force Member</p>
+
+              <h5>Preamble</h5>
+              <p>As a member of the SAFE coalition, I recognize that our influence with lawmakers and the public depends entirely upon our reputation for scientific accuracy, nonpartisan objectivity, and professional integrity. To protect the mission of Science And Freedom for Everyone organization, I agree to the following standards:</p>
+
+              <h5>1. Commitment to Scientific Integrity</h5>
+              <ul>
+                <li><strong>Evidence-Based Advocacy:</strong> I agree to base all advocacy, testimony, and communications on the "SAFE Standard" &mdash; relying on peer-reviewed data and the prevailing scientific consensus.</li>
+                <li><strong>Accuracy:</strong> I will not knowingly misrepresent scientific data, cherry-pick statistics, or use inflammatory rhetoric that undermines the credibility of the organization.</li>
+                <li><strong>The Peer-Review Process:</strong> I understand that all "Model Evidence Briefs" must undergo SAFE's internal review process before being released publicly. I will not distribute draft versions as an official SAFE policy.</li>
+              </ul>
+
+              <h5>2. Confidentiality &amp; Intellectual Property</h5>
+              <ul>
+                <li><strong>Internal Strategy:</strong> I will maintain the confidentiality of SAFE's internal legislative trackers, strategy memos, and pre-publication research.</li>
+                <li><strong>Proprietary Models:</strong> I acknowledge that the "Model Policy Analysis" frameworks and templates developed by SAFE are the intellectual property of the organization.</li>
+                <li><strong>Non-Disclosure:</strong> I will not share internal communications (emails, Slack/Signal messages, or meeting minutes, etc.) with outside parties, including the media or opposing advocacy groups, without express written consent.</li>
+                <li><strong>Sensitive Information:</strong> All personal, private, and sensitive information relating to employees &mdash; including but not limited to names, contact details, identification numbers, health information, and internal records &mdash; must be treated as strictly confidential.</li>
+              </ul>
+
+              <h5>3. Nonpartisanship &amp; Representation</h5>
+              <ul>
+                <li><strong>Issue vs. Party:</strong> I understand that SAFE is a nonpartisan organization. I will not use SAFE's resources, name, or my title within the organization to endorse political candidates or engage in partisan campaigning.</li>
+                <li><strong>Clarification of Role:</strong> When speaking in a personal capacity or on behalf of another organization, I will clearly state that my views are my own and do not necessarily represent the official position of SAFE.</li>
+                <li><strong>Model Talking Points:</strong> To ensure a consistent national message, I agree to adhere to Board-approved talking points when representing SAFE in an official capacity (e.g., legislative testimony, media interviews).</li>
+              </ul>
+
+              <h5>4. Conflict of Interest</h5>
+              <ul>
+                <li><strong>Disclosure:</strong> I will promptly disclose to SAFE leadership any professional or financial affiliations that may present a conflict of interest regarding specific public health legislation.</li>
+                <li><strong>Integrity of Influence:</strong> I will not use my position within SAFE to advance the private financial interests of myself, my employer, or any client.</li>
+              </ul>
+
+              <h5>5. Professional Conduct</h5>
+              <ul>
+                <li><strong>Civil Engagement:</strong> In all interactions with lawmakers, the public, and opposing advocates, I will maintain a professional and respectful demeanor at all times.</li>
+                <li><strong>Digital Responsibility:</strong> I will refrain from engaging in online harassment or spreading unverified information on social media platforms, recognizing that my digital footprint reflects on the SAFE organization.</li>
+                <li>This information and all associated SAFE assets &mdash; including but not limited to logos, templates, research data, and digital graphics &mdash; may not be shared, disclosed, distributed, accessed, or digitally altered by unauthorized individuals or third parties without explicit written permission. Any modification or unauthorized use of SAFE assets is strictly prohibited to ensure the integrity of our scientific messaging and nonpartisan brand.</li>
+              </ul>
+
+              <h5>6. At-Will Participation &amp; Termination</h5>
+              <ul>
+                <li><strong>Voluntary Relationship:</strong> I acknowledge that my participation in SAFE is at-will. Either I or SAFE may terminate this relationship at any time, with or without cause.</li>
+                <li><strong>Survival of Confidentiality:</strong> My obligation to maintain the confidentiality of SAFE's internal strategies and proprietary data remains in effect even after my volunteer service ends.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Compliance Checkboxes -->
+          <div style="margin-top:24px;">
+            <div class="form-check">
+              <input type="checkbox" id="volCheckCOI" required>
+              <label for="volCheckCOI">I acknowledge the Conflict of Interest disclosure requirements</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="volCheckConf" required>
+              <label for="volCheckConf">I agree to maintain Data Confidentiality as outlined above</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="volCheckNP" required>
+              <label for="volCheckNP">I pledge to uphold the Non-Partisan standards of the organization</label>
+            </div>
+          </div>
+
+          <!-- Signature Pad -->
+          <div class="signature-pad-wrapper">
+            <label style="font-weight:600;margin-bottom:8px;display:block;">Digital Signature <span class="required">*</span></label>
+            <p style="font-size:0.85rem;color:var(--steel);margin-bottom:12px;">Use your mouse or finger to sign below.</p>
+            <canvas id="signatureCanvas" class="signature-pad-canvas" width="700" height="200"></canvas>
+            <div class="signature-pad-actions">
+              <button type="button" class="btn btn-sm btn-dark" id="clearSignatureBtn">Clear Signature</button>
+            </div>
+          </div>
+
+          <div class="vol-nav">
+            <button type="button" class="btn btn-outline" onclick="prevStep()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+            <button type="submit" class="btn btn-primary" id="volSubmitBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Submit Application
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Success State -->
+      <div class="vol-success" id="volSuccess" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="2" style="width:64px;height:64px;margin:0 auto 20px;display:block;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <h3 style="text-align:center;margin-bottom:12px;">Application Submitted Successfully</h3>
+        <p style="text-align:center;color:var(--steel);max-width:500px;margin:0 auto;">Thank you for your interest in volunteering with the SAFE Research Institute. Your application is currently under review. You will be notified via email once a decision has been made. Please allow 5&ndash;7 business days for processing.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="footer-legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+        <a href="conflict-of-interest.html">Conflict of Interest</a>
+        <a href="gift-acceptance.html">Gift Acceptance &amp; Independence Policy</a>
+      </div>
+      <div class="footer-tax">
+        &copy; 2026 Science and Freedom for Everyone. All Rights Reserved. Tax ID 41-2910356
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="module" src="js/volunteer.js"></script>
+</body>
+</html>
