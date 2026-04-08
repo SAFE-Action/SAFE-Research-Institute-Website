@@ -1,5 +1,5 @@
 /* ============================================
-   SAFE Research Institute - Blog Page
+   SAFE Research Institute - Articles Page
    Loads published articles from Firestore,
    supports search, category filtering, and
    article detail modal with Markdown rendering.

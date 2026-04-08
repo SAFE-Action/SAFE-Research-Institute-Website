@@ -84,8 +84,29 @@ googleSignInBtn.addEventListener('click', async () => {
     await signInWithGoogle();
   } catch (err) {
     console.error('Sign-in failed:', err);
+    // Show user-facing error instead of failing silently
+    let msg = 'Sign-in failed. Please try again.';
+    if (err.code === 'auth/popup-closed-by-user') {
+      return; // User closed the popup intentionally, no error needed
+    } else if (err.code === 'auth/api-key-not-valid.-please-pass-a-valid-api-key.' || err.message?.includes('API key')) {
+      msg = 'Authentication is not yet configured. Please contact the site administrator.';
+    } else if (err.code === 'auth/network-request-failed') {
+      msg = 'Network error. Please check your connection and try again.';
+    }
+    showAuthError(msg);
   }
 });
+
+function showAuthError(message) {
+  let errorEl = document.getElementById('authError');
+  if (!errorEl) {
+    errorEl = document.createElement('div');
+    errorEl.id = 'authError';
+    errorEl.style.cssText = 'margin-top:16px;padding:14px 20px;background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.2);border-radius:8px;color:var(--red-accent);font-size:0.88rem;text-align:center;';
+    googleSignInBtn.parentElement.appendChild(errorEl);
+  }
+  errorEl.textContent = message;
+}
 
 signOutBtn.addEventListener('click', async () => {
   try {

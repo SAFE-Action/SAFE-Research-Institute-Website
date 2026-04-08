@@ -1,31 +1,29 @@
 /* ============================================
    SAFE Research Institute - Model Policy Library
-   Loads published policies from Firestore,
-   supports search, category/state filtering, and
-   policy detail modal with Markdown rendering.
+   Loads policies from local markdown files,
+   renders color-coded cards with filtering.
    ============================================ */
 
-import { db } from './firebase-config.js';
-import { collection, query, where, orderBy, getDocs, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+// --- Policy manifest (add new policy filenames here) ---
+const POLICY_FILES = [
+  'evidence-based-immunization-guidance-act.md',
+  'vaccine-coverage-guarantee-act.md',
+  'interstate-public-health-collaboration-resolution.md',
+  'immunization-provider-access-expansion-act.md',
+  'medical-only-immunization-exemption-act.md',
+  'pharmacist-immunization-authority-act.md',
+  'scientific-integrity-research-act.md',
+  'equitable-immunization-access-act.md'
+];
 
 // --- DOM References ---
 const policyGrid = document.getElementById('policyGrid');
 const policyEmptyState = document.getElementById('policyEmptyState');
 const searchInput = document.getElementById('policySearch');
+const typeFilter = document.getElementById('typeFilter');
 const categoryFilter = document.getElementById('categoryFilter');
 const stateFilter = document.getElementById('stateFilter');
-
-// Modal elements
-const policyModal = document.getElementById('policyModal');
-const policyModalBackdrop = document.getElementById('policyModalBackdrop');
-const policyModalClose = document.getElementById('policyModalClose');
-const policyModalCategory = document.getElementById('policyModalCategory');
-const policyModalTitle = document.getElementById('policyModalTitle');
-const policyModalStates = document.getElementById('policyModalStates');
-const policyModalDate = document.getElementById('policyModalDate');
-const policyModalActions = document.getElementById('policyModalActions');
-const policyPdfBtn = document.getElementById('policyPdfBtn');
-const policyModalBody = document.getElementById('policyModalBody');
+const resultsCount = document.getElementById('policyResultsCount');
 
 // --- State ---
 let allPolicies = [];
@@ -37,23 +35,63 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Fetch all published policies from Firestore, ordered by createdAt descending.
+ * Parse YAML frontmatter from a markdown string.
+ * Returns { meta: {}, body: "" }
+ */
+function parseMarkdown(text) {
+  const match = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+  if (!match) return { meta: {}, body: text };
+
+  const yamlStr = match[1];
+  const body = match[2].trim();
+  const meta = {};
+
+  yamlStr.split('\n').forEach(line => {
+    const colonIdx = line.indexOf(':');
+    if (colonIdx === -1) return;
+    const key = line.slice(0, colonIdx).trim();
+    let value = line.slice(colonIdx + 1).trim();
+
+    // Remove surrounding quotes
+    if ((value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+    }
+
+    // Parse arrays
+    if (value.startsWith('[') && value.endsWith(']')) {
+      value = value.slice(1, -1)
+        .split(',')
+        .map(s => s.trim().replace(/^["']|["']$/g, ''))
+        .filter(Boolean);
+    }
+
+    meta[key] = value;
+  });
+
+  return { meta, body };
+}
+
+/**
+ * Fetch all policy markdown files and parse them.
  */
 async function loadPolicies() {
   try {
-    const policiesRef = collection(db, 'policies');
-    const q = query(
-      policiesRef,
-      where('status', '==', 'published'),
-      orderBy('createdAt', 'desc')
+    const results = await Promise.all(
+      POLICY_FILES.map(async (filename) => {
+        try {
+          const res = await fetch('policies/' + filename);
+          if (!res.ok) return null;
+          const text = await res.text();
+          const { meta, body } = parseMarkdown(text);
+          return { ...meta, body, filename };
+        } catch {
+          return null;
+        }
+      })
     );
 
-    const snapshot = await getDocs(q);
-    allPolicies = snapshot.docs.map(docSnap => ({
-      id: docSnap.id,
-      ...docSnap.data()
-    }));
-
+    allPolicies = results.filter(Boolean);
     renderPolicyGrid(allPolicies);
   } catch (error) {
     console.error('Error loading policies:', error);
@@ -62,120 +100,128 @@ async function loadPolicies() {
 }
 
 /**
- * Format a Firestore Timestamp or Date into a readable date string.
- * @param {Object|Date|string} timestamp - Firestore Timestamp, Date, or date string.
- * @returns {string} Formatted date string.
+ * Format a date string for display.
  */
-function formatDate(timestamp) {
-  if (!timestamp) return '';
-  let date;
-  if (timestamp && typeof timestamp.toDate === 'function') {
-    date = timestamp.toDate();
-  } else if (timestamp instanceof Date) {
-    date = timestamp;
-  } else {
-    date = new Date(timestamp);
-  }
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const date = new Date(dateStr + 'T00:00:00');
   if (isNaN(date.getTime())) return '';
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric'
   });
 }
 
 /**
- * Build a single policy card element using safe DOM methods.
- * @param {Object} policy - Policy data object.
- * @returns {HTMLElement} The policy card element.
+ * Count applicable states from stateApplicability array.
+ */
+function stateCountLabel(states) {
+  if (!states || !Array.isArray(states)) return '';
+  if (states.includes('All States')) return 'All states';
+  return states.length + ' applicable state' + (states.length !== 1 ? 's' : '');
+}
+
+/**
+ * Build a single color-coded policy card element.
  */
 function buildPolicyCard(policy) {
-  const card = document.createElement('article');
+  const card = document.createElement('a');
   card.className = 'policy-card';
-  card.dataset.id = policy.id;
+  card.href = 'policy.html?id=' + encodeURIComponent(policy.id);
 
-  // Category tag
-  const categoryTag = document.createElement('span');
-  categoryTag.className = 'policy-card-category';
-  categoryTag.textContent = policy.category || 'Other';
-  card.appendChild(categoryTag);
+  // Color stripe
+  const stripe = document.createElement('div');
+  stripe.className = 'policy-card-stripe';
+  stripe.dataset.cat = policy.category || '';
+  card.appendChild(stripe);
+
+  // Card body
+  const body = document.createElement('div');
+  body.className = 'policy-card-body';
+
+  // Meta row: type + category pill
+  const meta = document.createElement('div');
+  meta.className = 'policy-card-meta';
+
+  const typeLabel = document.createElement('span');
+  typeLabel.className = 'policy-card-type';
+  typeLabel.textContent = policy.type || '';
+  meta.appendChild(typeLabel);
+
+  const catPill = document.createElement('span');
+  catPill.className = 'policy-category-pill';
+  catPill.dataset.cat = policy.category || '';
+  catPill.textContent = policy.category || '';
+  meta.appendChild(catPill);
+
+  body.appendChild(meta);
 
   // Title
   const titleEl = document.createElement('h3');
   titleEl.className = 'policy-card-title';
   titleEl.textContent = policy.title || '';
-  card.appendChild(titleEl);
+  body.appendChild(titleEl);
 
   // Summary
   const summaryEl = document.createElement('p');
   summaryEl.className = 'policy-card-summary';
   summaryEl.textContent = policy.summary || '';
-  card.appendChild(summaryEl);
+  body.appendChild(summaryEl);
 
-  // State applicability badges
-  const statesContainer = document.createElement('div');
-  statesContainer.className = 'policy-card-states';
-  const states = policy.stateApplicability || [];
-  const maxVisible = 5;
-  const visibleStates = states.slice(0, maxVisible);
-  const remaining = states.length - maxVisible;
+  // Footer: state count + date
+  const footer = document.createElement('div');
+  footer.className = 'policy-card-footer';
 
-  visibleStates.forEach(state => {
-    const badge = document.createElement('span');
-    badge.className = 'state-badge';
-    badge.textContent = state;
-    statesContainer.appendChild(badge);
-  });
+  const statesLabel = document.createElement('span');
+  statesLabel.textContent = stateCountLabel(policy.stateApplicability);
+  footer.appendChild(statesLabel);
 
-  if (remaining > 0) {
-    const moreBadge = document.createElement('span');
-    moreBadge.className = 'state-badge state-badge-more';
-    moreBadge.textContent = '+' + remaining + ' more';
-    statesContainer.appendChild(moreBadge);
-  }
+  const dot = document.createElement('span');
+  dot.className = 'dot';
+  footer.appendChild(dot);
 
-  card.appendChild(statesContainer);
+  const dateLabel = document.createElement('span');
+  dateLabel.textContent = 'Updated ' + formatDate(policy.updatedAt);
+  footer.appendChild(dateLabel);
 
-  // "Read Full Policy" button
-  const ctaBtn = document.createElement('button');
-  ctaBtn.className = 'policy-card-cta';
-  ctaBtn.type = 'button';
-  ctaBtn.textContent = 'Read Full Policy';
-  ctaBtn.setAttribute('aria-label', 'Read full policy: ' + (policy.title || ''));
-  ctaBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    openPolicyDetail(policy.id);
-  });
-  card.appendChild(ctaBtn);
-
-  // Card click also opens detail
-  card.addEventListener('click', () => openPolicyDetail(policy.id));
+  body.appendChild(footer);
+  card.appendChild(body);
 
   return card;
 }
 
 /**
- * Render policy cards into the grid using safe DOM methods.
- * @param {Array} policies - Array of policy data objects.
+ * Render policy cards into the grid.
  */
 function renderPolicyGrid(policies) {
   if (!policies || policies.length === 0) {
     showEmptyState();
+    updateResultsCount(0);
     return;
   }
 
   policyEmptyState.style.display = 'none';
   policyGrid.style.display = '';
 
-  // Clear existing content
   while (policyGrid.firstChild) {
     policyGrid.removeChild(policyGrid.firstChild);
   }
 
-  // Build and append each card
   policies.forEach(policy => {
     policyGrid.appendChild(buildPolicyCard(policy));
   });
+
+  updateResultsCount(policies.length);
+}
+
+/**
+ * Update the results count label.
+ */
+function updateResultsCount(count) {
+  if (resultsCount) {
+    resultsCount.textContent = 'Showing ' + count + ' polic' + (count === 1 ? 'y' : 'ies');
+  }
 }
 
 /**
@@ -187,14 +233,20 @@ function showEmptyState() {
 }
 
 /**
- * Filter and re-render policies based on current search text, category, and state selection.
+ * Filter and re-render policies based on current filters.
  */
 function filterPolicies() {
   const searchTerm = searchInput.value.trim().toLowerCase();
+  const selectedType = typeFilter.value;
   const selectedCategory = categoryFilter.value;
   const selectedState = stateFilter.value;
 
   let filtered = allPolicies;
+
+  // Type filter
+  if (selectedType !== 'All') {
+    filtered = filtered.filter(p => p.type === selectedType);
+  }
 
   // Category filter
   if (selectedCategory !== 'All') {
@@ -222,177 +274,16 @@ function filterPolicies() {
 }
 
 /**
- * Sanitize HTML string using DOMPurify if available, otherwise a conservative fallback.
- * @param {string} html - Raw HTML string.
- * @returns {string} Sanitized HTML string safe for DOM insertion.
- */
-function sanitizeHtml(html) {
-  if (typeof DOMPurify !== 'undefined') {
-    return DOMPurify.sanitize(html);
-  }
-
-  // Fallback: use the browser DOM parser and whitelist safe tags
-  const parser = new DOMParser();
-  const parsedDoc = parser.parseFromString(html, 'text/html');
-  const allowedTags = new Set([
-    'H1', 'H2', 'H3', 'H4', 'H5', 'H6',
-    'P', 'BR', 'HR',
-    'UL', 'OL', 'LI',
-    'STRONG', 'B', 'EM', 'I', 'U', 'S', 'DEL',
-    'A', 'BLOCKQUOTE', 'PRE', 'CODE',
-    'TABLE', 'THEAD', 'TBODY', 'TR', 'TH', 'TD',
-    'IMG', 'FIGURE', 'FIGCAPTION',
-    'DIV', 'SPAN', 'SUP', 'SUB'
-  ]);
-  const allowedAttrs = new Set(['href', 'src', 'alt', 'title', 'class', 'id']);
-
-  function cleanNode(node) {
-    const children = Array.from(node.childNodes);
-    children.forEach(child => {
-      if (child.nodeType === Node.ELEMENT_NODE) {
-        if (!allowedTags.has(child.tagName)) {
-          const text = document.createTextNode(child.textContent);
-          node.replaceChild(text, child);
-        } else {
-          Array.from(child.attributes).forEach(attr => {
-            if (!allowedAttrs.has(attr.name)) {
-              child.removeAttribute(attr.name);
-            }
-            if ((attr.name === 'href' || attr.name === 'src') && attr.value.trim().toLowerCase().startsWith('javascript:')) {
-              child.removeAttribute(attr.name);
-            }
-          });
-          cleanNode(child);
-        }
-      }
-    });
-  }
-
-  cleanNode(parsedDoc.body);
-  return parsedDoc.body.innerHTML;
-}
-
-/**
- * Render sanitized HTML content into a container using safe DOM insertion.
- * Parses the sanitized string into DOM nodes and appends them,
- * avoiding direct innerHTML assignment on the final target.
- * @param {HTMLElement} container - The target container element.
- * @param {string} sanitizedHtml - HTML string already sanitized by DOMPurify or fallback.
- */
-function renderSanitizedContent(container, sanitizedHtml) {
-  container.replaceChildren();
-  const template = document.createElement('template');
-  template.innerHTML = sanitizedHtml;
-  container.appendChild(template.content);
-}
-
-/**
- * Open the policy detail modal for a given policy ID.
- * Fetches the full document and renders Markdown body.
- * @param {string} policyId - Firestore document ID.
- */
-async function openPolicyDetail(policyId) {
-  // First check local cache
-  let policy = allPolicies.find(p => p.id === policyId);
-
-  // If body is missing from the cached version, fetch the full document
-  if (!policy || !policy.body) {
-    try {
-      const docRef = doc(db, 'policies', policyId);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        policy = { id: docSnap.id, ...docSnap.data() };
-      } else {
-        console.error('Policy not found:', policyId);
-        return;
-      }
-    } catch (error) {
-      console.error('Error fetching policy:', error);
-      return;
-    }
-  }
-
-  // Populate modal with safe text content
-  policyModalCategory.textContent = policy.category || '';
-  policyModalTitle.textContent = policy.title || '';
-  policyModalDate.textContent = policy.createdAt ? formatDate(policy.createdAt) : '';
-
-  // Render state badges in modal
-  while (policyModalStates.firstChild) {
-    policyModalStates.removeChild(policyModalStates.firstChild);
-  }
-  const states = policy.stateApplicability || [];
-  states.forEach(state => {
-    const badge = document.createElement('span');
-    badge.className = 'state-badge';
-    badge.textContent = state;
-    policyModalStates.appendChild(badge);
-  });
-
-  // PDF download button
-  if (policy.pdfUrl) {
-    policyPdfBtn.href = policy.pdfUrl;
-    policyModalActions.style.display = '';
-  } else {
-    policyPdfBtn.href = '#';
-    policyModalActions.style.display = 'none';
-  }
-
-  // Render Markdown to HTML using marked.js, then sanitize and insert safely
-  if (policy.body && typeof marked !== 'undefined') {
-    const rawHtml = marked.parse(policy.body);
-    const safeHtml = sanitizeHtml(rawHtml);
-    renderSanitizedContent(policyModalBody, safeHtml);
-  } else {
-    policyModalBody.replaceChildren();
-    const fallback = document.createElement('p');
-    fallback.textContent = 'Policy content is not available.';
-    policyModalBody.appendChild(fallback);
-  }
-
-  // Show modal
-  policyModal.classList.add('active');
-  policyModal.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-
-  // Focus the close button for accessibility
-  policyModalClose.focus();
-}
-
-/**
- * Close the policy detail modal.
- */
-function closePolicyModal() {
-  policyModal.classList.remove('active');
-  policyModal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-/**
- * Bind event listeners for search, filters, and modal controls.
+ * Bind event listeners for search and filters.
  */
 function bindEvents() {
-  // Search input with debounce (300ms)
   let searchTimeout;
   searchInput.addEventListener('input', () => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(filterPolicies, 300);
   });
 
-  // Category filter
+  typeFilter.addEventListener('change', filterPolicies);
   categoryFilter.addEventListener('change', filterPolicies);
-
-  // State filter
   stateFilter.addEventListener('change', filterPolicies);
-
-  // Modal close
-  policyModalClose.addEventListener('click', closePolicyModal);
-  policyModalBackdrop.addEventListener('click', closePolicyModal);
-
-  // Close modal on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && policyModal.classList.contains('active')) {
-      closePolicyModal();
-    }
-  });
 }
