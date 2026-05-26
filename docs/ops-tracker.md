@@ -1,7 +1,7 @@
 # SAFE Research Institute — Operations Tracker
 
 > Internal checklist tracking setup tasks gated by 501(c)(3) determination letter status.
-> Last updated: 2026-04-08
+> Last updated: 2026-05-25
 
 ---
 
@@ -49,7 +49,11 @@ These can be completed immediately while the application is pending.
 ### Infrastructure
 - [ ] Set up Stripe account and replace placeholder payment links in js/donate.js
 - [ ] Configure Firebase project with real credentials (js/firebase-config.js)
-- [ ] Connect Vercel to GitHub for automated deploys (requires GitHub Login Connection in Vercel settings)
+- [x] Add GitHub Actions static-site verification workflow
+- [x] Add GitHub Actions Vercel deploy workflow (secrets-gated)
+- [x] Add volunteer workflow field-capture regression verification
+- [ ] Add Vercel GitHub secrets or enable Vercel Git Integration for production deploys
+- [ ] Configure Google Apps Script volunteer onboarding webhook and shared secret
 
 ---
 

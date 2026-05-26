@@ -14,6 +14,9 @@ import {
 const EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY';
 const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
 const EMAILJS_ADMIN_TEMPLATE_ID = 'YOUR_ADMIN_NOTIFICATION_TEMPLATE';
+const AGREEMENT_VERSION = 'safe-code-of-integrity-2026-05-25';
+const MAX_RESUME_BYTES = 512 * 1024;
+const MAX_RESUME_LABEL = '512KB';
 
 // --- DOM References ---
 const authGate = document.getElementById('authGate');
@@ -480,9 +483,9 @@ function handleResumeUpload(fileInput) {
   const file = fileInput.files[0];
   if (!file) return;
 
-  // Validate file size (1MB = 1048576 bytes)
-  if (file.size > 1048576) {
-    markInvalid(fileInput, 'File size must be less than 1MB');
+  // Keep the Firestore document under its 1 MiB limit after base64 expansion.
+  if (file.size > MAX_RESUME_BYTES) {
+    markInvalid(fileInput, `File size must be less than ${MAX_RESUME_LABEL}`);
     fileInput.value = '';
     return;
   }
@@ -612,6 +615,9 @@ async function handleSubmit() {
 
     // Prepare Firestore document
     const docData = {
+      // Auth linkage required by Firestore rules
+      uid: currentUser ? currentUser.uid : null,
+
       // Personal Info
       fullName: formData.fullName,
       email: formData.email,
@@ -637,6 +643,7 @@ async function handleSubmit() {
       policyAreas: formData.policyAreas || [],
 
       // Commitment
+      commitmentConfirmed: true,
       meetingAvailability: formData.meetingAvailability,
       hearAbout: formData.hearAbout || '',
 
@@ -644,16 +651,23 @@ async function handleSubmit() {
       coiAcknowledged: true,
       confidentialityAgreed: true,
       nonPartisanPledge: true,
+      agreementVersion: AGREEMENT_VERSION,
       signatureDataUrl: formData.signatureDataUrl,
+      signedAt: serverTimestamp(),
 
       // Scoring
       legitimacyScore: score,
       legitimacyBreakdown: breakdown,
 
       // Meta
+      applicationSchemaVersion: 'volunteer-onboarding-v1',
       status: 'pending',
       submittedBy: currentUser ? currentUser.uid : null,
       submittedByEmail: currentUser ? currentUser.email : null,
+      submittedByDisplayName: currentUser ? currentUser.displayName || '' : '',
+      submittedByPhotoURL: currentUser ? currentUser.photoURL || '' : '',
+      sourceUrl: window.location.href,
+      userAgent: navigator.userAgent,
       submittedAt: serverTimestamp(),
       adminNotes: '',
       reviewedAt: null,

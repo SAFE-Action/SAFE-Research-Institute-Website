@@ -15,6 +15,7 @@ import {
 const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
 const EMAILJS_WELCOME_TEMPLATE_ID = 'YOUR_WELCOME_TEMPLATE';
 const GAS_WEBHOOK_URL = ''; // Empty = manual mode, user fills with deployed Apps Script URL
+const GAS_SHARED_SECRET = ''; // Must match CONFIG.SHARED_SECRET in google-apps-script/onboarding.gs
 const GOOGLE_CHAT_INVITE_LINK = ''; // Admin configures
 const GOOGLE_CALENDAR_LINK = ''; // Admin configures
 
@@ -309,9 +310,12 @@ export function showVolunteerDetail(volunteerId) {
   // Detail grid
   const grid = document.createElement('div');
   grid.className = 'vol-detail-grid';
+  const submittedDate = formatVolunteerTimestamp(vol.submittedAt);
+  const signedDate = formatVolunteerTimestamp(vol.signedAt);
 
   const fields = [
     { label: 'Email', value: vol.email },
+    { label: 'Signed-In Account', value: vol.submittedByEmail || vol.email || 'Unknown' },
     { label: 'Phone', value: vol.phone || 'Not provided' },
     { label: 'Location', value: vol.location },
     { label: 'Professional Title', value: vol.professionalTitle },
@@ -319,8 +323,14 @@ export function showVolunteerDetail(volunteerId) {
     { label: 'Task Group', value: TASK_GROUP_LABELS[vol.taskGroup] || vol.taskGroup },
     { label: 'Meeting Availability', value: vol.meetingAvailability || 'Not specified' },
     { label: 'How Heard About SAFE', value: vol.hearAbout || 'Not provided' },
+    { label: 'Commitment Confirmed', value: formatVolunteerBoolean(vol.commitmentConfirmed) },
+    { label: 'COI Acknowledged', value: formatVolunteerBoolean(vol.coiAcknowledged) },
+    { label: 'Confidentiality Agreed', value: formatVolunteerBoolean(vol.confidentialityAgreed) },
+    { label: 'Non-Partisan Pledge', value: formatVolunteerBoolean(vol.nonPartisanPledge) },
+    { label: 'Agreement Version', value: vol.agreementVersion || 'Not captured' },
+    { label: 'Signed', value: signedDate },
     { label: 'Status', value: (vol.status || 'pending').charAt(0).toUpperCase() + (vol.status || 'pending').slice(1) },
-    { label: 'Submitted', value: vol.submittedAt ? new Date(vol.submittedAt.toDate ? vol.submittedAt.toDate() : vol.submittedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Unknown' }
+    { label: 'Submitted', value: submittedDate }
   ];
 
   fields.forEach(({ label, value }) => {
@@ -577,6 +587,27 @@ export function showVolunteerDetail(volunteerId) {
   volDetailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+function formatVolunteerTimestamp(timestamp) {
+  if (!timestamp) return 'Unknown';
+  const date = timestamp && typeof timestamp.toDate === 'function'
+    ? timestamp.toDate()
+    : new Date(timestamp);
+
+  if (isNaN(date.getTime())) return 'Unknown';
+
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+
+function formatVolunteerBoolean(value) {
+  if (value === true) return 'Yes';
+  if (value === false) return 'No';
+  return 'Not captured';
+}
+
 function appendTextSection(parent, label, value) {
   const section = document.createElement('div');
   section.style.cssText = 'margin:12px 0;';
@@ -634,19 +665,36 @@ export async function approveVolunteer(volunteerId) {
     // Call webhook if configured
     if (GAS_WEBHOOK_URL) {
       try {
-        await fetch(GAS_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({
-            action: 'volunteer_approved',
-            volunteerId: volunteerId,
-            name: vol.fullName,
-            email: vol.email,
-            taskGroup: vol.taskGroup,
-            score: vol.legitimacyScore
-          })
-        });
+        if (!GAS_SHARED_SECRET) {
+          console.warn('Google Apps Script webhook URL is configured, but GAS_SHARED_SECRET is empty. Skipping onboarding webhook.');
+        } else {
+          await fetch(GAS_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            mode: 'no-cors',
+            body: JSON.stringify({
+              secret: GAS_SHARED_SECRET,
+              action: 'onboard',
+              volunteer: {
+                id: volunteerId,
+                fullName: vol.fullName,
+                email: vol.email,
+                phone: vol.phone || '',
+                location: vol.location || '',
+                professionalTitle: vol.professionalTitle || '',
+                organization: vol.organization || '',
+                linkedin: vol.linkedin || '',
+                taskGroup: vol.taskGroup,
+                meetingAvailability: vol.meetingAvailability,
+                experience: vol.experience || '',
+                skills: vol.skills || '',
+                hearAbout: vol.hearAbout || '',
+                agreementVersion: vol.agreementVersion || '',
+                legitimacyScore: vol.legitimacyScore
+              }
+            })
+          });
+        }
       } catch (webhookErr) {
         console.warn('Webhook call failed (non-critical):', webhookErr);
       }

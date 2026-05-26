@@ -1,0 +1,70 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-production-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  production:
+    name: Production deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify static site
+        run: bash scripts/verify-site.sh
+
+      - name: Check Vercel credentials
+        id: vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          missing=()
+          [[ -n "$VERCEL_TOKEN" ]] || missing+=("VERCEL_TOKEN")
+          [[ -n "$VERCEL_ORG_ID" ]] || missing+=("VERCEL_ORG_ID")
+          [[ -n "$VERCEL_PROJECT_ID" ]] || missing+=("VERCEL_PROJECT_ID")
+
+          if [[ "${#missing[@]}" -gt 0 ]]; then
+            echo "::notice::Skipping Vercel deploy; missing GitHub secret(s): ${missing[*]}"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Pull Vercel project settings
+        if: ${{ steps.vercel.outputs.ready == 'true' }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: npx --yes vercel@latest pull --yes --environment=production --token "$VERCEL_TOKEN"
+
+      - name: Build Vercel output
+        if: ${{ steps.vercel.outputs.ready == 'true' }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: npx --yes vercel@latest build --prod --token "$VERCEL_TOKEN"
+
+      - name: Deploy production
+        if: ${{ steps.vercel.outputs.ready == 'true' }}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: npx --yes vercel@latest deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN"

@@ -1,0 +1,24 @@
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-site:
+    name: Static site verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify HTML and local links
+        run: bash scripts/verify-site.sh
