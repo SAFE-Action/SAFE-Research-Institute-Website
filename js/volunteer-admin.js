@@ -15,6 +15,7 @@ import {
 const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
 const EMAILJS_WELCOME_TEMPLATE_ID = 'YOUR_WELCOME_TEMPLATE';
 const GAS_WEBHOOK_URL = ''; // Empty = manual mode, user fills with deployed Apps Script URL
+const GAS_SHARED_SECRET = ''; // Must match CONFIG.SHARED_SECRET in google-apps-script/onboarding.gs
 const GOOGLE_CHAT_INVITE_LINK = ''; // Admin configures
 const GOOGLE_CALENDAR_LINK = ''; // Admin configures
 
@@ -634,19 +635,27 @@ export async function approveVolunteer(volunteerId) {
     // Call webhook if configured
     if (GAS_WEBHOOK_URL) {
       try {
-        await fetch(GAS_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({
-            action: 'volunteer_approved',
-            volunteerId: volunteerId,
-            name: vol.fullName,
-            email: vol.email,
-            taskGroup: vol.taskGroup,
-            score: vol.legitimacyScore
-          })
-        });
+        if (!GAS_SHARED_SECRET) {
+          console.warn('Google Apps Script webhook URL is configured, but GAS_SHARED_SECRET is empty. Skipping onboarding webhook.');
+        } else {
+          await fetch(GAS_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            mode: 'no-cors',
+            body: JSON.stringify({
+              secret: GAS_SHARED_SECRET,
+              action: 'onboard',
+              volunteer: {
+                id: volunteerId,
+                fullName: vol.fullName,
+                email: vol.email,
+                taskGroup: vol.taskGroup,
+                meetingAvailability: vol.meetingAvailability,
+                legitimacyScore: vol.legitimacyScore
+              }
+            })
+          });
+        }
       } catch (webhookErr) {
         console.warn('Webhook call failed (non-critical):', webhookErr);
       }
