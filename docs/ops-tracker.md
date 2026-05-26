@@ -51,6 +51,7 @@ These can be completed immediately while the application is pending.
 - [ ] Configure Firebase project with real credentials (js/firebase-config.js)
 - [x] Add GitHub Actions static-site verification workflow
 - [x] Add GitHub Actions Vercel deploy workflow (secrets-gated)
+- [x] Add volunteer workflow field-capture regression verification
 - [ ] Add Vercel GitHub secrets or enable Vercel Git Integration for production deploys
 - [ ] Configure Google Apps Script volunteer onboarding webhook and shared secret
 

@@ -65,6 +65,14 @@ while IFS= read -r file; do
   check_pending_status_language "$file"
 done < <(find . -path './.git' -prune -o -name '*.html' -print | sort)
 
+if [[ "$failures" -eq 0 ]]; then
+  if command -v node >/dev/null 2>&1; then
+    node scripts/verify-volunteer-workflow.mjs
+  else
+    echo "WARNING: node not found; skipping volunteer workflow verification." >&2
+  fi
+fi
+
 if [[ "$failures" -gt 0 ]]; then
   echo "Site verification failed with $failures issue(s)." >&2
   exit 1

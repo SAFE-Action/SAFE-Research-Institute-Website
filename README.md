@@ -14,7 +14,7 @@ This is a static site. There is no build step required for normal edits.
 bash scripts/verify-site.sh
 ```
 
-The verifier checks HTML shape, local `href`/`src` targets, and obvious public-copy drift around pending 501(c)(3) status.
+The verifier checks HTML shape, local `href`/`src` targets, obvious public-copy drift around pending 501(c)(3) status, and volunteer onboarding field coverage across the form, Firestore payload, admin queue, and Apps Script webhook.
 
 ## GitHub Automation
 

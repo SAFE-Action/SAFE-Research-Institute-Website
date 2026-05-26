@@ -36,8 +36,8 @@ The deploy workflow intentionally skips deployment instead of failing when secre
 Applicant path:
 
 1. Applicant signs in with Google on `volunteer.html`.
-2. `js/volunteer.js` collects the four-step application, signature, optional resume, and task group.
-3. The application is written to Firestore collection `volunteers` with `status: pending`.
+2. `js/volunteer.js` collects the four-step application, signature, optional resume, and task group. Resume uploads are capped at 512KB because they are stored in the Firestore application document.
+3. The application is written to Firestore collection `volunteers` with `status: pending`, the authenticated user's `uid`, agreement acknowledgments, agreement version, signature timestamp, source URL, and all visible form fields.
 
 Admin path:
 
@@ -56,6 +56,16 @@ Google Workspace automation path:
 5. Approve a test volunteer in the admin panel and confirm Apps Script logs show Chat, Calendar, and welcome-email results.
 
 The admin panel uses `mode: no-cors` for the Apps Script call, so browser JavaScript cannot read the webhook response. Treat Apps Script logs and the resulting Chat/Calendar/email artifacts as the verification source.
+
+## Regression Check
+
+Run the site verifier before merging volunteer workflow changes:
+
+```sh
+bash scripts/verify-site.sh
+```
+
+This includes `scripts/verify-volunteer-workflow.mjs`, which checks that volunteer form fields are represented in the Firestore payload, admin detail view, Firestore rules contract, meeting availability values, and Apps Script webhook contract.
 
 ## Firebase Setup
 

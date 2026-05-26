@@ -125,7 +125,7 @@ function handleOnboard(volunteer) {
 
   // 2. Create calendar invite
   try {
-    createCalendarInvite(volunteer.email, volunteer.fullName, volunteer.meetingAvailability);
+    createCalendarInvite(volunteer.email, volunteer.fullName, normalizeMeetingAvailability(volunteer.meetingAvailability));
     results.calendarInvite = true;
   } catch (err) {
     Logger.log('Calendar invite error: ' + err.message);
@@ -212,6 +212,10 @@ function addToChatSpace(email, name) {
  * @param {string} availability - "both", "agenda-only", or "working-only".
  */
 function createCalendarInvite(email, name, availability) {
+  if (!['both', 'agenda-only', 'working-only'].includes(availability)) {
+    throw new Error('Unsupported meeting availability: ' + availability);
+  }
+
   const calendar = CalendarApp.getCalendarById(CONFIG.CALENDAR_ID);
   if (!calendar) {
     throw new Error('Calendar not found. Check CALENDAR_ID in config.');
@@ -271,6 +275,15 @@ function createCalendarInvite(email, name, availability) {
 
     Logger.log('Created working session series for ' + email);
   }
+}
+
+function normalizeMeetingAvailability(availability) {
+  const aliases = {
+    agenda: 'agenda-only',
+    working: 'working-only'
+  };
+
+  return aliases[availability] || availability;
 }
 
 /**

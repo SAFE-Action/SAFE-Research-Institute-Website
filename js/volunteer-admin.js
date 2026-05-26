@@ -310,9 +310,12 @@ export function showVolunteerDetail(volunteerId) {
   // Detail grid
   const grid = document.createElement('div');
   grid.className = 'vol-detail-grid';
+  const submittedDate = formatVolunteerTimestamp(vol.submittedAt);
+  const signedDate = formatVolunteerTimestamp(vol.signedAt);
 
   const fields = [
     { label: 'Email', value: vol.email },
+    { label: 'Signed-In Account', value: vol.submittedByEmail || vol.email || 'Unknown' },
     { label: 'Phone', value: vol.phone || 'Not provided' },
     { label: 'Location', value: vol.location },
     { label: 'Professional Title', value: vol.professionalTitle },
@@ -320,8 +323,14 @@ export function showVolunteerDetail(volunteerId) {
     { label: 'Task Group', value: TASK_GROUP_LABELS[vol.taskGroup] || vol.taskGroup },
     { label: 'Meeting Availability', value: vol.meetingAvailability || 'Not specified' },
     { label: 'How Heard About SAFE', value: vol.hearAbout || 'Not provided' },
+    { label: 'Commitment Confirmed', value: formatVolunteerBoolean(vol.commitmentConfirmed) },
+    { label: 'COI Acknowledged', value: formatVolunteerBoolean(vol.coiAcknowledged) },
+    { label: 'Confidentiality Agreed', value: formatVolunteerBoolean(vol.confidentialityAgreed) },
+    { label: 'Non-Partisan Pledge', value: formatVolunteerBoolean(vol.nonPartisanPledge) },
+    { label: 'Agreement Version', value: vol.agreementVersion || 'Not captured' },
+    { label: 'Signed', value: signedDate },
     { label: 'Status', value: (vol.status || 'pending').charAt(0).toUpperCase() + (vol.status || 'pending').slice(1) },
-    { label: 'Submitted', value: vol.submittedAt ? new Date(vol.submittedAt.toDate ? vol.submittedAt.toDate() : vol.submittedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : 'Unknown' }
+    { label: 'Submitted', value: submittedDate }
   ];
 
   fields.forEach(({ label, value }) => {
@@ -578,6 +587,27 @@ export function showVolunteerDetail(volunteerId) {
   volDetailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+function formatVolunteerTimestamp(timestamp) {
+  if (!timestamp) return 'Unknown';
+  const date = timestamp && typeof timestamp.toDate === 'function'
+    ? timestamp.toDate()
+    : new Date(timestamp);
+
+  if (isNaN(date.getTime())) return 'Unknown';
+
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+
+function formatVolunteerBoolean(value) {
+  if (value === true) return 'Yes';
+  if (value === false) return 'No';
+  return 'Not captured';
+}
+
 function appendTextSection(parent, label, value) {
   const section = document.createElement('div');
   section.style.cssText = 'margin:12px 0;';
@@ -649,8 +679,17 @@ export async function approveVolunteer(volunteerId) {
                 id: volunteerId,
                 fullName: vol.fullName,
                 email: vol.email,
+                phone: vol.phone || '',
+                location: vol.location || '',
+                professionalTitle: vol.professionalTitle || '',
+                organization: vol.organization || '',
+                linkedin: vol.linkedin || '',
                 taskGroup: vol.taskGroup,
                 meetingAvailability: vol.meetingAvailability,
+                experience: vol.experience || '',
+                skills: vol.skills || '',
+                hearAbout: vol.hearAbout || '',
+                agreementVersion: vol.agreementVersion || '',
                 legitimacyScore: vol.legitimacyScore
               }
             })
