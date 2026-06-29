@@ -166,6 +166,18 @@ function showStep(n) {
   if (formContainer) {
     formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  // Step 4 contains the signature canvas, which is hidden until now.
+  // getBoundingClientRect returns 0×0 for hidden elements, so the
+  // canvas dimensions set in initSignaturePad are wrong. Re-measure
+  // on first entry to step 4, after the browser has laid out the
+  // now-visible canvas.
+  if (n === 4 && signatureCanvas && signatureCtx && !hasDrawn) {
+    requestAnimationFrame(() => {
+      resizeCanvas();
+      fillCanvasWhite();
+    });
+  }
 }
 
 // Expose to global scope for inline onclick handlers
