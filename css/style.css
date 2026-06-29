@@ -456,6 +456,13 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
+/* Balanced 2x2 for the four-program grid (avoids an orphaned 3+1 row) */
+.pillars-grid--four {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .pillar-card {
   background: var(--white);
   border-radius: var(--radius-lg);
