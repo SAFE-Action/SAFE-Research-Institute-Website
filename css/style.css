@@ -871,7 +871,7 @@ select.form-control {
   line-height: 1.7;
 }
 
-/* --- SAFE Action Disclosure --- */
+/* --- Disclosure Banner --- */
 .disclosure-banner {
   background: rgba(200,168,85,0.06);
   border: 1px solid rgba(200,168,85,0.15);
