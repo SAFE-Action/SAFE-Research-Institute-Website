@@ -23,12 +23,12 @@ status: "published"
 
 1. Pharmacists are among the most accessible health care providers in the United States, with approximately ninety percent of Americans living within five miles of a community pharmacy.
 2. During the COVID-19 public health emergency, the federal Public Readiness and Emergency Preparedness (PREP) Act and subsequent amendments authorized pharmacists nationwide to administer a broad range of vaccines to individuals aged three and older, demonstrating the safety and efficacy of pharmacist-administered vaccination on a large scale.
-3. Data from the Centers for Disease Control and Prevention indicate that pharmacist-administered vaccinations significantly increased immunization access, particularly in rural and medically underserved communities, during the period of expanded federal authorization.
-4. Multiple states have enacted permanent legislation codifying expanded pharmacist vaccination authority following the expiration of federal emergency declarations, resulting in measurable improvements in vaccination coverage rates.
+3. Public health analyses of the period of expanded federal authorization have reported that pharmacist-administered vaccinations expanded immunization access, particularly in rural and medically underserved communities.
+4. Following the expiration of federal emergency declarations, multiple states have enacted permanent legislation codifying expanded pharmacist vaccination authority, and proponents point to improved access where such authority has been retained.
 5. Unnecessary referral requirements and restrictive scope-of-practice limitations create barriers to timely immunization, disproportionately affecting populations with limited access to primary care providers.
 6. It is in the interest of the state to permanently authorize licensed pharmacists to administer all FDA-approved and FDA-authorized vaccines, subject to appropriate training and reporting requirements, in order to maximize immunization access for all residents.
 
-(b) The purpose of this Act is to permanently expand the scope of practice of licensed pharmacists to include the administration of all FDA-approved and FDA-authorized vaccines to eligible individuals, thereby removing unnecessary barriers to immunization access and codifying the proven public health benefits of pharmacist-administered vaccination.
+(b) The purpose of this Act is to permanently expand the scope of practice of licensed pharmacists to include the administration of all FDA-approved and FDA-authorized vaccines to eligible individuals, thereby reducing barriers to immunization access and codifying the documented public health benefits of pharmacist-administered vaccination.
 
 ## Section 2. Definitions
 

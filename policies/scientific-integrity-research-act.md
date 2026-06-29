@@ -21,8 +21,8 @@ status: "published"
 
 (a) The Legislature finds and declares that:
 
-1. Sound public health policy depends upon the free, transparent, and objective conduct of scientific research, unimpeded by political considerations or ideological pressure.
-2. In recent years, documented instances of political interference with federal public health agencies, including the Centers for Disease Control and Prevention and the National Institutes of Health, have undermined public confidence in scientific institutions and compromised the integrity of public health guidance.
+1. Sound public health policy depends upon the free, transparent, and impartial conduct of scientific research, unimpeded by political considerations or ideological pressure.
+2. Concerns about political influence on the work of public health agencies have been the subject of significant public debate and of federal scientific-integrity policymaking, underscoring the importance of clear safeguards for research independence at every level of government.
 3. Researchers employed by or funded through state agencies have reported instances of pressure to alter findings, delay publication of results, or refrain from investigating topics deemed politically sensitive, to the detriment of public health.
 4. The suppression, alteration, or selective release of scientific findings for political purposes poses a direct threat to the health and safety of the public, as policymakers and health care providers rely on accurate and timely scientific evidence to inform decisions affecting millions of residents.
 5. Multiple federal scientific integrity policies established between 2009 and 2022 demonstrated the feasibility and importance of institutional safeguards for research independence, and changes to federal scientific integrity frameworks have prompted interest in state-level approaches to research governance.

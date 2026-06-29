@@ -13,6 +13,8 @@ status: "published"
 
 # Resolution Supporting Interstate Public Health Collaboration
 
+> **About this document.** The following is an *annotated example* of resolution language, provided for educational illustration of how a state legislature might formally express support for interstate public health cooperation. It is offered as a template for study and adaptation, not as a recommendation by the SAFE Research Institute that any legislature adopt it or take any particular action. Resolution drafting conventions ("WHEREAS… NOW, THEREFORE, BE IT RESOLVED") are reproduced here so readers can see how such instruments are typically structured.
+
 **A RESOLUTION** affirming the commitment of the State of [STATE] to interstate cooperation in maintaining evidence-based public health standards, epidemiological surveillance, and emergency preparedness.
 
 *Introduced by [SPONSOR(S)]*
@@ -23,9 +25,9 @@ status: "published"
 
 **WHEREAS,** infectious diseases do not respect state boundaries, and the effective prevention and control of communicable disease requires coordinated action among jurisdictions; and
 
-**WHEREAS,** the states have a long and successful history of interstate collaboration on matters of public health, including through interstate compacts, mutual aid agreements, and regional health partnerships; and
+**WHEREAS,** states have collaborated on matters of public health through mechanisms such as interstate compacts, mutual aid agreements, and regional health partnerships; and
 
-**WHEREAS,** regional public health alliances, including the West Coast Health Alliance among California, Oregon, Washington, and Hawaii, and collaborative agreements among Northeastern states, have demonstrated the value of multi-state coordination in maintaining evidence-based immunization guidance, sharing epidemiological surveillance data, and preserving public health laboratory capacity; and
+**WHEREAS,** more recent regional public health alliances — such as the West Coast Health Alliance, formed in 2025 among California, Oregon, Washington, and Hawaii — reflect growing interest in multi-state coordination on evidence-based immunization guidance, the sharing of epidemiological surveillance data, and public health laboratory capacity; and
 
 **WHEREAS,** disruptions to federal public health advisory processes, reductions in federal epidemiological capacity, or delays in federal immunization guidance may create gaps in public health protection that states must be prepared to address collectively; and
 
@@ -67,7 +69,7 @@ This model resolution represents one approach to formalizing interstate public h
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome.
+The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome. The resolution text above is an illustrative example of legislative drafting, reproduced for study; its inclusion here is not an endorsement of its adoption.
 
 ---
 
