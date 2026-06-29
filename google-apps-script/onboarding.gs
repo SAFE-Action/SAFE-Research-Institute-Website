@@ -313,9 +313,9 @@ function getNextWeekday(fromDate, weekday) {
  */
 function sendWelcomeEmail(volunteer) {
   const taskGroupNames = {
-    'advocates': 'Advocates — Public Outreach and Communications',
+    'outreach': 'Science Awareness & Outreach — Public Education and Communication',
     'digital': 'Digital — Website, Data, and Technical Infrastructure',
-    'experts': 'Experts — Legislation Analysis',
+    'experts': 'Evidence Engine — Research and Publication',
     'general': 'General Volunteer'
   };
 

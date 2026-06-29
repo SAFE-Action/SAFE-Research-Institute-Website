@@ -24,9 +24,9 @@ let currentDetailId = null;
 
 // --- Task Group Labels ---
 const TASK_GROUP_LABELS = {
-  advocates: 'Advocates - Public Outreach',
+  outreach: 'Science Awareness & Outreach - Public Education',
   digital: 'Digital - Technical Infrastructure',
-  experts: 'Experts - Legislation Analysis',
+  experts: 'Evidence Engine - Research and Publication',
   general: 'General Volunteer'
 };
 
@@ -90,7 +90,7 @@ async function handleFilterChange() {
 /**
  * Query Firestore for volunteers, update stats.
  * @param {string} statusFilter - 'all', 'pending', 'approved', 'rejected'
- * @param {string} groupFilter - 'all', 'advocates', 'digital', 'experts', 'general'
+ * @param {string} groupFilter - 'all', 'outreach', 'digital', 'experts', 'general'
  */
 export async function loadVolunteers(statusFilter, groupFilter) {
   if (volApplicationList) {
@@ -393,7 +393,7 @@ export function showVolunteerDetail(volunteerId) {
   }
 
   // Conditional group-specific fields
-  if (vol.taskGroup === 'advocates') {
+  if (vol.taskGroup === 'outreach') {
     if (vol.outreachExperience) {
       appendTextSection(panel, 'Outreach Experience', vol.outreachExperience);
     }

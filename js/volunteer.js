@@ -124,7 +124,7 @@ function readUrlParams() {
   const params = new URLSearchParams(window.location.search);
   const group = params.get('group');
   if (group && taskGroupSelect) {
-    const validGroups = ['advocates', 'digital', 'experts', 'general'];
+    const validGroups = ['outreach', 'digital', 'experts', 'general'];
     if (validGroups.includes(group.toLowerCase())) {
       taskGroupSelect.value = group.toLowerCase();
       updateConditionalFields();
@@ -327,7 +327,7 @@ taskGroupSelect.addEventListener('change', updateConditionalFields);
 
 function updateConditionalFields() {
   const val = taskGroupSelect.value;
-  const groups = ['advocates', 'digital', 'experts'];
+  const groups = ['outreach', 'digital', 'experts'];
 
   groups.forEach((g) => {
     const container = document.getElementById('fields-' + g);
@@ -652,6 +652,7 @@ async function handleSubmit() {
 
       // Meta
       status: 'pending',
+      uid: currentUser ? currentUser.uid : null,
       submittedBy: currentUser ? currentUser.uid : null,
       submittedByEmail: currentUser ? currentUser.email : null,
       submittedAt: serverTimestamp(),
