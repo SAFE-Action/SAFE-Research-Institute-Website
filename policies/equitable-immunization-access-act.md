@@ -22,10 +22,10 @@ status: "published"
 (a) The Legislature finds and declares that:
 
 1. Immunization is a cornerstone of public health, yet significant disparities in vaccination rates persist across the state based on race, ethnicity, household income, geographic location, and primary language.
-2. Data from the Centers for Disease Control and Prevention and state immunization registries demonstrate that communities of color, rural populations, and low-income households consistently experience lower vaccination rates for routine childhood, adolescent, and adult immunizations compared to state and national averages.
+2. Data from the Centers for Disease Control and Prevention and state immunization registries indicate that communities of color, rural populations, and low-income households often experience lower vaccination rates for routine childhood, adolescent, and adult immunizations compared to state and national averages.
 3. Geographic analysis reveals that many areas of the state qualify as immunization deserts, defined as communities where residents face significant barriers to accessing vaccination services due to distance, provider scarcity, transportation limitations, or inadequate culturally and linguistically appropriate services.
 4. The COVID-19 pandemic further exposed and exacerbated existing immunization disparities, with Black, Latino, Indigenous, and rural communities experiencing disproportionately lower vaccination rates and higher rates of vaccine-preventable morbidity and mortality.
-5. Evidence-based interventions, including mobile vaccination units, community health worker programs, and multilingual outreach campaigns, have been demonstrated to improve vaccination rates in underserved populations when implemented with sustained funding and community engagement.
+5. Evidence-based interventions, including mobile vaccination units, community health worker programs, and multilingual outreach campaigns, have been associated with improved vaccination rates in underserved populations when implemented with sustained funding and community engagement.
 6. Multiple states and localities have successfully piloted or permanently funded programs to address immunization deserts, providing replicable models for statewide implementation.
 7. It is in the interest of the state to systematically identify and address immunization deserts and to eliminate disparities in immunization access to protect the health of all residents.
 

@@ -19,13 +19,13 @@ status: "published"
 
 (1) Childhood immunization is one of the most effective public health interventions in modern medicine, preventing millions of cases of serious illness and death annually.
 
-(2) States that limit immunization exemptions to medical-only consistently achieve the highest vaccination rates in the nation. West Virginia maintained a 98.3% MMR vaccination rate among kindergarteners, ranking first in the nation, with a non-medical exemption rate of less than 0.1%. Mississippi sustained vaccination rates above 97% for decades under its medical-only exemption standard, ranking among the top states nationally until it was compelled to allow religious exemptions in 2023, after which its ranking fell from first to third.
+(2) Research has documented an association between medical-only exemption standards and higher childhood vaccination rates. For example, CDC kindergarten vaccination surveys for the 2023–24 school year reported that West Virginia — which at that time limited exemptions to medical grounds — was among the states with the highest MMR coverage, at approximately 98 percent, alongside a very low non-medical exemption rate. State exemption laws continue to change through legislation, executive action, and litigation, and current requirements vary by state.
 
 (3) In 2015, following a measles outbreak linked to Disneyland in Anaheim, California, the California Legislature enacted SB 277, eliminating personal belief exemptions from school immunization requirements. Vaccination rates increased measurably in the years following enactment.
 
-(4) Currently, only five states — West Virginia, California, New York, Connecticut, and Maine — maintain medical-only exemption policies for school and childcare entry.
+(4) Only a small number of states currently limit school and childcare immunization exemptions to medical grounds. The specific states in this group have shifted in recent years as a result of new legislation, executive action, and court decisions, and legislators should confirm the current status of any comparison state before relying on it.
 
-(5) Peer-reviewed research demonstrates a strong correlation between the availability of non-medical exemptions and the clustering of unvaccinated individuals in communities, which in turn is associated with outbreaks of vaccine-preventable diseases including measles, whooping cough, and other communicable illnesses.
+(5) Peer-reviewed research has documented an association between broader availability of non-medical exemptions and the geographic clustering of under-vaccinated individuals, which studies have in turn linked to outbreaks of vaccine-preventable diseases such as measles and pertussis (whooping cough).
 
 (6) It is the purpose of this Act to protect children and the public health by ensuring that only medically justified exemptions are permitted from school and childcare immunization requirements.
 
@@ -103,4 +103,8 @@ This model legislation represents one approach to standardizing immunization exe
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome.
+The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome. The elimination of non-medical exemptions is among the most contested issues in immunization policy, raising significant constitutional and religious-liberty questions; this template is provided to inform analysis of one approach, not to endorse it.
+
+---
+
+*This model legislation is provided by the SAFE Research Institute as a template for state legislatures. It is not legal advice. States should adapt this language to conform with their existing statutory frameworks, constitutional provisions, and administrative procedures.*
