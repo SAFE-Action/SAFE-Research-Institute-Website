@@ -4018,3 +4018,25 @@ input[type="file"].is-invalid {
   .board-featured .board-photo { max-width: 190px; }
   .board-others { grid-template-columns: 1fr; }
 }
+
+/* --- Activity card: who-we-need + get-involved link --- */
+.pillar-need {
+  font-size: 0.85rem;
+  color: var(--steel);
+  margin-top: 16px;
+}
+.pillar-need strong { color: var(--navy); }
+.pillar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  transition: gap var(--transition), color var(--transition);
+}
+.pillar-cta:hover { gap: 12px; color: var(--accent); }
