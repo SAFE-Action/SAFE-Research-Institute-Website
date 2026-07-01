@@ -3943,3 +3943,85 @@ input[type="file"].is-invalid {
     padding: 14px 12px;
   }
 }
+
+/* --- Board / Leadership --- */
+.board-featured {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  align-items: start;
+  background: var(--white);
+  border: 1px solid rgba(30,33,72,0.08);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+}
+.board-featured-body h3 { font-size: 1.6rem; margin-bottom: 4px; }
+.board-featured-body > p { color: var(--steel); margin-top: 14px; line-height: 1.8; }
+.board-featured-body em { font-style: italic; }
+.board-role-note {
+  font-size: 0.9rem;
+  color: var(--silver) !important;
+  border-top: 1px solid rgba(30,33,72,0.08);
+  padding-top: 16px;
+  margin-top: 18px !important;
+}
+.board-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--purple), var(--accent));
+}
+.board-photo::after {
+  content: attr(data-initials);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
+.board-photo img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.board-others {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+.board-card {
+  background: var(--white);
+  border: 1px solid rgba(30,33,72,0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+.board-photo--sm {
+  width: 64px;
+  height: 64px;
+  aspect-ratio: auto;
+  border-radius: 50%;
+  margin-bottom: 18px;
+}
+.board-photo--sm::after { font-size: 1.3rem; }
+.board-card h3 { font-size: 1.15rem; margin-bottom: 4px; }
+.board-card > p { color: var(--steel); margin-top: 10px; }
+.board-bio-pending { color: var(--silver) !important; font-size: 0.85rem; font-style: italic; }
+
+@media (max-width: 720px) {
+  .board-featured { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+  .board-featured .board-photo { max-width: 190px; }
+  .board-others { grid-template-columns: 1fr; }
+}
