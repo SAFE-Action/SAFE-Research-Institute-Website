@@ -13,17 +13,18 @@ status: "published"
 
 # Insurance Coverage for Immunizations: A Policy Analysis
 
-**AN ACT** relating to health insurance; requiring coverage of state-recommended immunizations without cost-sharing; establishing provider reimbursement standards; and providing for enforcement and related matters.
+> **Educational example — not proposed legislation.** This document is provided by the SAFE Research Institute for educational analysis of how a policy approach might be structured. It is not a bill, and its inclusion here is not a recommendation to adopt any measure.
 
-*Be it enacted by the Legislature of the State of [STATE]:*
+This educational example examines an approach relating to health insurance; requiring coverage of state-recommended immunizations without cost-sharing; establishing provider reimbursement standards; and providing for enforcement and related matters.
+
 
 ## Section 1. Purpose
 
-The Legislature finds that financial barriers to immunization, including copayments, deductibles, and prior authorization requirements, reduce vaccination rates and disproportionately affect low-income families, older adults, and medically underserved populations. This Act ensures that all residents covered by state-regulated health insurance plans can receive recommended immunizations without encountering cost barriers at the point of care.
+The Legislature finds that financial barriers to immunization, including copayments, deductibles, and prior authorization requirements, reduce vaccination rates and disproportionately affect low-income families, older adults, and medically underserved populations. This measure ensures that all residents covered by state-regulated health insurance plans can receive recommended immunizations without encountering cost barriers at the point of care.
 
 ## Section 2. Definitions
 
-As used in this Act:
+As used in this measure:
 
 1. **"Cost-sharing"** means any copayment, coinsurance, deductible, or other out-of-pocket expense imposed on an enrollee at the time an immunization service is rendered.
 2. **"Covered immunization"** means any vaccine or combination of vaccines included on the immunization schedule published by the state department of health, including those administered for routine, catch-up, or risk-based indications.
@@ -33,7 +34,7 @@ As used in this Act:
 
 ## Section 3. Coverage Requirements
 
-(a) Every health benefit plan issued, delivered, amended, or renewed in this state on or after the effective date of this Act shall provide coverage for all covered immunizations.
+(a) Every health benefit plan issued, delivered, amended, or renewed in this state on or after the effective date of this measure shall provide coverage for all covered immunizations.
 
 (b) Coverage shall include the vaccine product, its administration, and any related office visit or clinical evaluation necessary for the immunization to be provided, when the immunization is the primary purpose of the visit.
 
@@ -45,7 +46,7 @@ As used in this Act:
 
 (b) No issuer shall require prior authorization, step therapy, or any other utilization management technique as a condition of coverage for a covered immunization.
 
-(c) No issuer shall apply any annual or lifetime limit specific to immunization benefits under this Act.
+(c) No issuer shall apply any annual or lifetime limit specific to immunization benefits under this measure.
 
 (d) An issuer shall not classify immunization services under a separate benefit tier or category that results in less favorable coverage than other preventive services.
 
@@ -67,23 +68,23 @@ As used in this Act:
 
 ## Section 7. Implementation Timeline
 
-(a) This Act shall apply to all health benefit plans issued or renewed on or after January 1 of the calendar year following enactment.
+(a) This measure shall apply to all health benefit plans issued or renewed on or after January 1 of the calendar year following enactment.
 
-(b) Issuers shall update their formularies, provider communications, and claims processing systems to comply with this Act within one hundred eighty days of enactment.
+(b) Issuers shall update their formularies, provider communications, and claims processing systems to comply with this measure within one hundred eighty days of enactment.
 
-(c) The department of insurance shall issue guidance to issuers regarding compliance with this Act within ninety days of enactment.
+(c) The department of insurance shall issue guidance to issuers regarding compliance with this measure within ninety days of enactment.
 
 ## Section 8. Enforcement
 
-(a) The department of insurance shall enforce this Act and may examine issuer compliance as part of routine market conduct examinations.
+(a) The department of insurance shall enforce this measure and may examine issuer compliance as part of routine market conduct examinations.
 
-(b) Any issuer found in violation of this Act shall be subject to corrective action, including:
+(b) Any issuer found in violation of this measure shall be subject to corrective action, including:
 
 1. An order to provide retroactive reimbursement to affected enrollees for any improperly assessed cost-sharing;
 2. A civil penalty of not more than one thousand dollars per violation per enrollee;
 3. Suspension or revocation of the issuer's certificate of authority for repeated or willful violations.
 
-(c) An enrollee aggrieved by a violation of this Act may file a complaint with the department of insurance and shall have a private right of action to recover actual damages, reasonable attorney fees, and costs.
+(c) An enrollee aggrieved by a violation of this measure may file a complaint with the department of insurance and shall have a private right of action to recover actual damages, reasonable attorney fees, and costs.
 
 ## Policy Considerations
 

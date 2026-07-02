@@ -13,30 +13,31 @@ status: "published"
 
 # Evidence-Based Immunization Guidance: A Policy Analysis
 
-**AN ACT** relating to public health; authorizing the state department of health to establish immunization recommendations based on guidance from recognized medical professional organizations; and providing for related matters.
+> **Educational example — not proposed legislation.** This document is provided by the SAFE Research Institute for educational analysis of how a policy approach might be structured. It is not a bill, and its inclusion here is not a recommendation to adopt any measure.
 
-*Be it enacted by the Legislature of the State of [STATE]:*
+This educational example examines an approach relating to public health; authorizing the state department of health to establish immunization recommendations based on guidance from recognized medical professional organizations; and providing for related matters.
+
 
 ## Section 1. Purpose and Findings
 
-(a) The Legislature finds and declares that:
+(a) This example is premised on the following findings:
 
 1. Immunization is among the most effective public health interventions in history, preventing millions of cases of disease, disability, and death each year.
 2. The health and welfare of the residents of this state depend upon timely access to immunizations guided by the best available scientific and clinical evidence.
 3. Recognized medical professional organizations, through rigorous peer-reviewed processes, develop and maintain immunization recommendations grounded in current epidemiological data, clinical trial evidence, and established principles of preventive medicine.
 4. It is in the interest of the state to ensure that its immunization recommendations remain aligned with the prevailing scientific consensus, even in the event of disruption, delay, or alteration of federal advisory processes.
 
-(b) The purpose of this Act is to authorize the state department of health to promulgate immunization schedules and recommendations informed by the guidance of recognized medical professional organizations, thereby safeguarding continuity of evidence-based immunization practice within the state.
+(b) The purpose of this measure is to authorize the state department of health to promulgate immunization schedules and recommendations informed by the guidance of recognized medical professional organizations, thereby safeguarding continuity of evidence-based immunization practice within the state.
 
 ## Section 2. Definitions
 
-As used in this Act:
+As used in this measure:
 
 1. **"Department"** means the state department of health or its successor agency.
 2. **"Director"** means the director of the department or the director's designee.
 3. **"Immunization recommendation"** means a clinical guideline specifying the vaccines, dosing schedules, age-appropriate timing, and target populations for immunization within the state.
-4. **"Recognized medical professional organization"** means an organization designated under Section 4 of this Act.
-5. **"State Immunization Advisory Committee"** means the committee established under Section 3 of this Act.
+4. **"Recognized medical professional organization"** means an organization designated under Section 4 of this measure.
+5. **"State Immunization Advisory Committee"** means the committee established under Section 3 of this measure.
 
 ## Section 3. State Immunization Advisory Authority
 
@@ -54,7 +55,7 @@ As used in this Act:
 
 ## Section 4. Recognized Medical Professional Organizations
 
-(a) For purposes of this Act, the following organizations are designated as recognized medical professional organizations:
+(a) For purposes of this measure, the following organizations are designated as recognized medical professional organizations:
 
 1. The American Academy of Pediatrics (AAP);
 2. The American Academy of Family Physicians (AAFP);
@@ -70,7 +71,7 @@ As used in this Act:
 
 (b) In the event that federal immunization recommendations are suspended, materially delayed, or diverge from the prevailing consensus of the recognized medical professional organizations, the department shall issue interim guidance consistent with the consensus of such organizations.
 
-(c) Nothing in this Act shall be construed to prohibit the department from adopting recommendations that exceed federal recommendations where supported by the scientific evidence reviewed by the committee.
+(c) Nothing in this measure shall be construed to prohibit the department from adopting recommendations that exceed federal recommendations where supported by the scientific evidence reviewed by the committee.
 
 ## Section 6. Periodic Review
 
@@ -85,7 +86,7 @@ As used in this Act:
 
 ## Section 7. Severability
 
-If any provision of this Act, or its application to any person or circumstance, is held invalid, the invalidity does not affect other provisions or applications of this Act that can be given effect without the invalid provision or application, and to this end the provisions of this Act are severable.
+If any provision of this measure, or its application to any person or circumstance, is held invalid, the invalidity does not affect other provisions or applications of this measure that can be given effect without the invalid provision or application, and to this end the provisions of this measure are severable.
 
 ## Policy Considerations
 

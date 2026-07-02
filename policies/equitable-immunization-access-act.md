@@ -13,13 +13,14 @@ status: "published"
 
 # Equitable Immunization Access: A Policy Analysis
 
-**AN ACT** relating to public health; requiring the identification and remediation of immunization deserts; establishing mobile vaccination programs, community health worker initiatives, and multilingual outreach; creating the Immunization Equity Fund; and providing for related matters.
+> **Educational example — not proposed legislation.** This document is provided by the SAFE Research Institute for educational analysis of how a policy approach might be structured. It is not a bill, and its inclusion here is not a recommendation to adopt any measure.
 
-*Be it enacted by the Legislature of the State of [STATE]:*
+This educational example examines an approach relating to public health; requiring the identification and remediation of immunization deserts; establishing mobile vaccination programs, community health worker initiatives, and multilingual outreach; creating the Immunization Equity Fund; and providing for related matters.
+
 
 ## Section 1. Purpose and Findings
 
-(a) The Legislature finds and declares that:
+(a) This example is premised on the following findings:
 
 1. Immunization is a cornerstone of public health, yet significant disparities in vaccination rates persist across the state based on race, ethnicity, household income, geographic location, and primary language.
 2. Data from the Centers for Disease Control and Prevention and state immunization registries indicate that communities of color, rural populations, and low-income households often experience lower vaccination rates for routine childhood, adolescent, and adult immunizations compared to state and national averages.
@@ -29,18 +30,18 @@ status: "published"
 6. Multiple states and localities have successfully piloted or permanently funded programs to address immunization deserts, providing replicable models for statewide implementation.
 7. It is in the interest of the state to systematically identify and address immunization deserts and to eliminate disparities in immunization access to protect the health of all residents.
 
-(b) The purpose of this Act is to establish a comprehensive framework for identifying immunization deserts, deploying targeted interventions to improve immunization access in underserved communities, and eliminating disparities in vaccination rates based on race, ethnicity, income, geography, and language.
+(b) The purpose of this measure is to establish a comprehensive framework for identifying immunization deserts, deploying targeted interventions to improve immunization access in underserved communities, and eliminating disparities in vaccination rates based on race, ethnicity, income, geography, and language.
 
 ## Section 2. Definitions
 
-As used in this Act:
+As used in this measure:
 
 1. **"Community health worker"** means a frontline public health worker who is a trusted member of, or has an unusually close understanding of, the community served, and who serves as a liaison between health services and the community to facilitate access to services, improve the quality and cultural competence of service delivery, and promote health equity.
 2. **"Department"** means the state department of health or its successor agency.
 3. **"Director"** means the director of the department or the director's designee.
 4. **"Federally qualified health center"** means an entity that has been designated as a federally qualified health center under Section 330 of the Public Health Service Act (42 U.S.C. 254b).
-5. **"Immunization desert"** means a geographic area designated by the department under Section 3 of this Act in which residents face significant barriers to accessing immunization services.
-6. **"Immunization Equity Fund"** means the fund established under Section 8 of this Act.
+5. **"Immunization desert"** means a geographic area designated by the department under Section 3 of this measure in which residents face significant barriers to accessing immunization services.
+6. **"Immunization Equity Fund"** means the fund established under Section 8 of this measure.
 7. **"Immunization registry"** means the statewide immunization information system maintained by the department for the purpose of recording and tracking vaccine administration.
 8. **"Limited English proficiency"** means the inability to adequately understand or communicate effectively in English, as determined by standards established by the department.
 9. **"Local health department"** means a county, municipal, or regional health department or district operating within the state.
@@ -49,7 +50,7 @@ As used in this Act:
 
 ## Section 3. Identification of Immunization Deserts
 
-(a) The department shall, within one hundred eighty days of the effective date of this Act and annually thereafter, conduct a comprehensive assessment to identify immunization deserts within the state. The assessment shall consider:
+(a) The department shall, within one hundred eighty days of the effective date of this measure and annually thereafter, conduct a comprehensive assessment to identify immunization deserts within the state. The assessment shall consider:
 
 1. Geographic distribution of immunization providers, including physicians, pharmacies, federally qualified health centers, local health departments, and other entities authorized to administer vaccines;
 2. Travel time and distance from population centers to the nearest immunization provider, with particular attention to public transportation availability;
@@ -135,12 +136,12 @@ As used in this Act:
 (b) The department shall establish measurable goals for eliminating immunization disparities in designated immunization deserts, including:
 
 1. Achieving immunization coverage rates within five percentage points of the statewide average for all routinely recommended vaccines in each designated immunization desert within three years of designation;
-2. Reducing racial and ethnic disparities in immunization coverage by fifty percent within five years of the effective date of this Act; and
-3. Ensuring that no geographic area of the state qualifies as an immunization desert within seven years of the effective date of this Act.
+2. Reducing racial and ethnic disparities in immunization coverage by fifty percent within five years of the effective date of this measure; and
+3. Ensuring that no geographic area of the state qualifies as an immunization desert within seven years of the effective date of this measure.
 
-(c) The department shall submit a biennial report to the Governor and the Legislature on progress toward the goals established under subsection (b), including an assessment of the effectiveness of the programs established under this Act and recommendations for additional legislative or administrative action.
+(c) The department shall submit a biennial report to the Governor and the Legislature on progress toward the goals established under subsection (b), including an assessment of the effectiveness of the programs established under this measure and recommendations for additional legislative or administrative action.
 
-(d) The department shall convene an Immunization Equity Advisory Council, composed of representatives of underserved populations, community health workers, local health department officials, immunization providers, and public health researchers, to advise the department on the implementation and evaluation of programs under this Act.
+(d) The department shall convene an Immunization Equity Advisory Council, composed of representatives of underserved populations, community health workers, local health department officials, immunization providers, and public health researchers, to advise the department on the implementation and evaluation of programs under this measure.
 
 ## Section 8. Immunization Equity Fund
 
@@ -148,7 +149,7 @@ As used in this Act:
 
 (b) The fund shall consist of:
 
-1. Appropriations made by the Legislature for the purposes of this Act;
+1. Appropriations made by the Legislature for the purposes of this measure;
 2. Federal grants and funds allocated to the state for immunization equity, access, or outreach purposes;
 3. Donations, gifts, and bequests made to the fund; and
 4. Any other funds designated by law for deposit into the fund.
@@ -160,19 +161,19 @@ As used in this Act:
 3. Multilingual outreach and communication activities under Section 6;
 4. Data collection, analysis, and reporting under Section 7;
 5. Vaccine purchase for uninsured and underinsured individuals in designated immunization deserts; and
-6. Administrative costs directly associated with the programs established under this Act, not to exceed ten percent of total annual fund expenditures.
+6. Administrative costs directly associated with the programs established under this measure, not to exceed ten percent of total annual fund expenditures.
 
 (d) The department shall publish an annual accounting of all expenditures from the fund on its website.
 
 ## Section 9. Non-Discrimination
 
-(a) No program or service established under this Act shall discriminate against any individual on the basis of race, color, national origin, sex, age, disability, religion, sexual orientation, gender identity, immigration status, or primary language.
+(a) No program or service established under this measure shall discriminate against any individual on the basis of race, color, national origin, sex, age, disability, religion, sexual orientation, gender identity, immigration status, or primary language.
 
-(b) Immunization services provided under this Act shall be available to all eligible individuals regardless of insurance status, ability to pay, or documentation of citizenship or immigration status.
+(b) Immunization services provided under this measure shall be available to all eligible individuals regardless of insurance status, ability to pay, or documentation of citizenship or immigration status.
 
 ## Section 10. Coordination with Existing Programs
 
-(a) The department shall coordinate the implementation of this Act with existing federal, state, and local immunization programs, including but not limited to:
+(a) The department shall coordinate the implementation of this measure with existing federal, state, and local immunization programs, including but not limited to:
 
 1. The Vaccines for Children (VFC) program;
 2. The Section 317 Immunization Program;
@@ -180,15 +181,15 @@ As used in this Act:
 4. School-based health programs; and
 5. Maternal and child health programs.
 
-(b) Nothing in this Act shall be construed to duplicate, supplant, or reduce funding for existing immunization programs.
+(b) Nothing in this measure shall be construed to duplicate, supplant, or reduce funding for existing immunization programs.
 
 ## Section 11. Severability
 
-If any provision of this Act, or its application to any person or circumstance, is held invalid, the invalidity does not affect other provisions or applications of this Act that can be given effect without the invalid provision or application, and to this end the provisions of this Act are severable.
+If any provision of this measure, or its application to any person or circumstance, is held invalid, the invalidity does not affect other provisions or applications of this measure that can be given effect without the invalid provision or application, and to this end the provisions of this measure are severable.
 
 ## Section 12. Effective Date
 
-This Act shall take effect on [DATE], or upon passage and approval, whichever is later.
+This measure shall take effect on [DATE], or upon passage and approval, whichever is later.
 
 ## Policy Considerations
 

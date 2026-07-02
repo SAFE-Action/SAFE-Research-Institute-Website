@@ -13,9 +13,11 @@ status: "published"
 
 # Medical-Only Immunization Exemption Standards: A Policy Analysis
 
+> **Educational example — not proposed legislation.** This document is provided by the SAFE Research Institute for educational analysis of how a policy approach might be structured. It is not a bill, and its inclusion here is not a recommendation to adopt any measure.
+
 ## Section 1: Purpose and Findings
 
-(a) The Legislature finds and declares the following:
+(a) This example is premised on the following findings:
 
 (1) Childhood immunization is one of the most effective public health interventions in modern medicine, preventing millions of cases of serious illness and death annually.
 
@@ -27,11 +29,11 @@ status: "published"
 
 (5) Peer-reviewed research has documented an association between broader availability of non-medical exemptions and the geographic clustering of under-vaccinated individuals, which studies have in turn linked to outbreaks of vaccine-preventable diseases such as measles and pertussis (whooping cough).
 
-(6) It is the purpose of this Act to protect children and the public health by ensuring that only medically justified exemptions are permitted from school and childcare immunization requirements.
+(6) It is the purpose of this measure to protect children and the public health by ensuring that only medically justified exemptions are permitted from school and childcare immunization requirements.
 
 ## Section 2: Definitions
 
-As used in this Act:
+As used in this measure:
 
 (a) **"Immunization requirements"** means the vaccinations required by the State Department of Health for enrollment in any school or childcare facility, as established by rule in accordance with recommendations of the Advisory Committee on Immunization Practices (ACIP) and the American Academy of Pediatrics (AAP).
 
@@ -47,9 +49,9 @@ As used in this Act:
 
 (a) No exemption from the immunization requirements of this State based upon personal, philosophical, moral, or religious beliefs shall be recognized for purposes of enrollment in any school or childcare facility.
 
-(b) The sole exemption from immunization requirements for school or childcare enrollment shall be a medical exemption issued in accordance with Section 4 of this Act.
+(b) The sole exemption from immunization requirements for school or childcare enrollment shall be a medical exemption issued in accordance with Section 4 of this measure.
 
-(c) Any existing statute, regulation, or administrative rule permitting non-medical exemptions from school or childcare immunization requirements is hereby superseded to the extent of any conflict with this Act.
+(c) Any existing statute, regulation, or administrative rule permitting non-medical exemptions from school or childcare immunization requirements is hereby superseded to the extent of any conflict with this measure.
 
 ## Section 4: Medical Exemption Standards
 
@@ -79,7 +81,7 @@ As used in this Act:
 
 ## Section 6: Public Education and Outreach
 
-(a) The State Department of Health shall develop and fund a comprehensive public education program to inform parents, guardians, and healthcare providers about immunization requirements, the safety and efficacy of vaccines, and the provisions of this Act.
+(a) The State Department of Health shall develop and fund a comprehensive public education program to inform parents, guardians, and healthcare providers about immunization requirements, the safety and efficacy of vaccines, and the provisions of this measure.
 
 (b) The program shall include culturally and linguistically appropriate materials and shall prioritize outreach to communities with historically low vaccination rates.
 
@@ -87,11 +89,11 @@ As used in this Act:
 
 ## Section 7: Severability
 
-If any provision of this Act, or the application thereof to any person or circumstance, is held invalid by a court of competent jurisdiction, the invalidity shall not affect other provisions or applications of this Act that can be given effect without the invalid provision or application, and to this end the provisions of this Act are severable.
+If any provision of this measure, or the application thereof to any person or circumstance, is held invalid by a court of competent jurisdiction, the invalidity shall not affect other provisions or applications of this measure that can be given effect without the invalid provision or application, and to this end the provisions of this measure are severable.
 
 ## Section 8: Effective Date
 
-This Act shall take effect on the first day of the school year immediately following the date of enactment, provided that no fewer than one hundred and eighty (180) days have elapsed between the date of enactment and such first day. If fewer than one hundred and eighty days remain before the start of the next school year, this Act shall take effect on the first day of the subsequent school year.
+This measure shall take effect on the first day of the school year immediately following the date of enactment, provided that no fewer than one hundred and eighty (180) days have elapsed between the date of enactment and such first day. If fewer than one hundred and eighty days remain before the start of the next school year, this measure shall take effect on the first day of the subsequent school year.
 
 ## Policy Considerations
 

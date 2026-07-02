@@ -13,13 +13,14 @@ status: "published"
 
 # Scientific Integrity in Public Health Research: A Policy Analysis
 
-**AN ACT** relating to scientific integrity; establishing protections for state-funded public health researchers; prohibiting political interference with scientific research and findings; mandating transparent research methodology; providing whistleblower protections; and providing for related matters.
+> **Educational example — not proposed legislation.** This document is provided by the SAFE Research Institute for educational analysis of how a policy approach might be structured. It is not a bill, and its inclusion here is not a recommendation to adopt any measure.
 
-*Be it enacted by the Legislature of the State of [STATE]:*
+This educational example examines an approach relating to scientific integrity; establishing protections for state-funded public health researchers; prohibiting political interference with scientific research and findings; mandating transparent research methodology; providing whistleblower protections; and providing for related matters.
+
 
 ## Section 1. Purpose and Findings
 
-(a) The Legislature finds and declares that:
+(a) This example is premised on the following findings:
 
 1. Sound public health policy depends upon the free, transparent, and impartial conduct of scientific research, unimpeded by political considerations or ideological pressure.
 2. Concerns about political influence on the work of public health agencies have been the subject of significant public debate and of federal scientific-integrity policymaking, underscoring the importance of clear safeguards for research independence at every level of government.
@@ -28,21 +29,21 @@ status: "published"
 5. Multiple federal scientific integrity policies established between 2009 and 2022 demonstrated the feasibility and importance of institutional safeguards for research independence, and changes to federal scientific integrity frameworks have prompted interest in state-level approaches to research governance.
 6. It is in the interest of the state to establish robust, enforceable protections for scientific integrity in public health research conducted with state funds or under state authority.
 
-(b) The purpose of this Act is to safeguard the integrity, independence, and transparency of public health research conducted by or on behalf of the state, to protect researchers from retaliation for adhering to scientific standards, and to ensure that the public and policymakers have access to accurate, timely, and complete scientific information.
+(b) The purpose of this measure is to safeguard the integrity, independence, and transparency of public health research conducted by or on behalf of the state, to protect researchers from retaliation for adhering to scientific standards, and to ensure that the public and policymakers have access to accurate, timely, and complete scientific information.
 
 ## Section 2. Definitions
 
-As used in this Act:
+As used in this measure:
 
 1. **"Covered agency"** means any state agency, department, board, commission, or public institution of higher education that conducts, funds, or oversees public health research, including but not limited to the state department of health, the state environmental agency, and public universities.
 2. **"Covered researcher"** means any individual who conducts public health research in whole or in part with state funds, under state authority, or as an employee or contractor of a covered agency, including principal investigators, co-investigators, research staff, laboratory personnel, and graduate research assistants.
 3. **"Department"** means the state department of health or its successor agency.
-4. **"Inspector General"** means the state inspector general, the inspector general of the relevant covered agency, or a designated independent entity as established under Section 7 of this Act.
+4. **"Inspector General"** means the state inspector general, the inspector general of the relevant covered agency, or a designated independent entity as established under Section 7 of this measure.
 5. **"Political interference"** means any action by an elected official, political appointee, or other non-scientific personnel that is intended to, or has the effect of, improperly influencing the design, conduct, analysis, reporting, or dissemination of public health research for reasons unrelated to scientific merit, methodological rigor, or legal compliance.
 6. **"Public health research"** means systematic investigation, including research development, testing, evaluation, and dissemination of findings, designed to develop or contribute to generalizable knowledge related to the prevention of disease, promotion of health, or understanding of environmental, behavioral, or biological determinants of health.
-7. **"Retaliation"** means any adverse employment action, including termination, demotion, suspension, reassignment, reduction in funding, denial of promotion, or other materially adverse change in the terms or conditions of employment or funding, taken against a covered researcher in response to protected activity under this Act.
+7. **"Retaliation"** means any adverse employment action, including termination, demotion, suspension, reassignment, reduction in funding, denial of promotion, or other materially adverse change in the terms or conditions of employment or funding, taken against a covered researcher in response to protected activity under this measure.
 8. **"Scientific findings"** means the data, analyses, conclusions, and recommendations resulting from public health research.
-9. **"Scientific Integrity Officer"** means the individual designated under Section 3 of this Act.
+9. **"Scientific Integrity Officer"** means the individual designated under Section 3 of this measure.
 
 ## Section 3. Scientific Integrity Officer
 
@@ -56,7 +57,7 @@ As used in this Act:
 
 (b) The Scientific Integrity Officer shall have the authority and responsibility to:
 
-1. Develop, implement, and enforce a scientific integrity policy for the covered agency consistent with the requirements of this Act;
+1. Develop, implement, and enforce a scientific integrity policy for the covered agency consistent with the requirements of this measure;
 2. Receive and investigate complaints of political interference or violations of scientific integrity;
 3. Issue findings and recommendations to the agency head, which shall be made public within thirty days of issuance;
 4. Publish an annual report on the state of scientific integrity within the covered agency, including the number and disposition of complaints received; and
@@ -96,10 +97,10 @@ As used in this Act:
 
 (a) No covered agency or officer thereof shall take or threaten to take any retaliatory action against a covered researcher who, in good faith:
 
-1. Reports a suspected violation of this Act to the Scientific Integrity Officer, the Inspector General, a member of the Legislature, or any other appropriate authority;
-2. Refuses to engage in conduct that would constitute a violation of this Act;
-3. Provides testimony or cooperates with an investigation under this Act; or
-4. Exercises any right protected under this Act.
+1. Reports a suspected violation of this measure to the Scientific Integrity Officer, the Inspector General, a member of the Legislature, or any other appropriate authority;
+2. Refuses to engage in conduct that would constitute a violation of this measure;
+3. Provides testimony or cooperates with an investigation under this measure; or
+4. Exercises any right protected under this measure.
 
 (b) A covered researcher who is subjected to retaliation in violation of this section may:
 
@@ -112,20 +113,20 @@ As used in this Act:
    - (iv) Reasonable attorneys' fees and costs of litigation; and
    - (v) Such other equitable relief as the court deems necessary to make the covered researcher whole.
 
-(c) In any proceeding under this section, a rebuttable presumption of retaliation shall arise if an adverse employment action is taken within twelve months of the covered researcher engaging in protected activity under this Act. The burden shall then shift to the covered agency to demonstrate by clear and convincing evidence that the adverse action was taken for legitimate, non-retaliatory reasons.
+(c) In any proceeding under this section, a rebuttable presumption of retaliation shall arise if an adverse employment action is taken within twelve months of the covered researcher engaging in protected activity under this measure. The burden shall then shift to the covered agency to demonstrate by clear and convincing evidence that the adverse action was taken for legitimate, non-retaliatory reasons.
 
 ## Section 7. Enforcement
 
-(a) The Inspector General shall have the authority to investigate complaints of violations of this Act, including political interference and retaliation, and to issue findings and recommendations.
+(a) The Inspector General shall have the authority to investigate complaints of violations of this measure, including political interference and retaliation, and to issue findings and recommendations.
 
-(b) A covered agency that is found to have violated this Act may be subject to:
+(b) A covered agency that is found to have violated this measure may be subject to:
 
 1. A requirement to restore any suppressed, altered, or withdrawn scientific findings to their original form and make them publicly available;
 2. Mandatory corrective action, including revision of policies and training of personnel;
 3. Reporting to the Legislature and the Governor on the violation and corrective actions taken; and
 4. Such other remedies as may be appropriate under applicable law.
 
-(c) An individual who knowingly and willfully directs or coerces a covered researcher to violate this Act, or who knowingly and willfully retaliates against a covered researcher in violation of Section 6, shall be subject to:
+(c) An individual who knowingly and willfully directs or coerces a covered researcher to violate this measure, or who knowingly and willfully retaliates against a covered researcher in violation of Section 6, shall be subject to:
 
 1. Disciplinary action, up to and including termination of employment;
 2. Civil penalties of not less than five thousand dollars ($5,000) nor more than fifty thousand dollars ($50,000) per violation; and
@@ -149,17 +150,17 @@ As used in this Act:
 
 ## Section 9. Periodic Review and Reporting
 
-(a) Each covered agency shall conduct an internal review of its compliance with this Act not less than once every two years and shall submit a report of its findings to the Scientific Integrity Advisory Board and the relevant committees of the Legislature.
+(a) Each covered agency shall conduct an internal review of its compliance with this measure not less than once every two years and shall submit a report of its findings to the Scientific Integrity Advisory Board and the relevant committees of the Legislature.
 
 (b) The Scientific Integrity Advisory Board shall compile the agency reports and publish a comprehensive statewide assessment of scientific integrity, which shall be made available to the public on the department's website.
 
 ## Section 10. Severability
 
-If any provision of this Act, or its application to any person or circumstance, is held invalid, the invalidity does not affect other provisions or applications of this Act that can be given effect without the invalid provision or application, and to this end the provisions of this Act are severable.
+If any provision of this measure, or its application to any person or circumstance, is held invalid, the invalidity does not affect other provisions or applications of this measure that can be given effect without the invalid provision or application, and to this end the provisions of this measure are severable.
 
 ## Section 11. Effective Date
 
-This Act shall take effect on [DATE], or upon passage and approval, whichever is later.
+This measure shall take effect on [DATE], or upon passage and approval, whichever is later.
 
 ## Policy Considerations
 
