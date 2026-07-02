@@ -1,7 +1,7 @@
 ---
 id: vaccine-coverage-guarantee-act
-title: "Vaccine Coverage Guarantee Act"
-type: "Model Legislation"
+title: "Insurance Coverage for Immunizations: A Policy Analysis"
+type: "Policy Analysis"
 category: "Consumer Protection"
 summary: "Requires all state-regulated health insurance plans to provide coverage for immunizations recommended by the state health department without cost-sharing, copayments, or prior authorization, ensuring no resident faces financial barriers to vaccination."
 stateApplicability: ["CA", "IL", "NJ", "CO", "NY", "PA", "WA", "OR", "CT", "MA", "VT", "MD", "MN", "HI", "MI", "VA", "NM", "ME", "RI", "DE"]
@@ -11,7 +11,7 @@ updatedAt: "2026-03-13"
 status: "published"
 ---
 
-# Vaccine Coverage Guarantee Act
+# Insurance Coverage for Immunizations: A Policy Analysis
 
 **AN ACT** relating to health insurance; requiring coverage of state-recommended immunizations without cost-sharing; establishing provider reimbursement standards; and providing for enforcement and related matters.
 
@@ -95,8 +95,8 @@ This model legislation represents one approach to eliminating cost-sharing barri
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome.
+The SAFE Research Institute presents this material as an educational resource and does not advocate for or against any specific legislative outcome.
 
 ---
 
-*This model legislation is provided by the SAFE Research Institute as a template for state legislatures. It is not legal advice. States should adapt this language to conform with their existing insurance regulatory frameworks, constitutional provisions, and administrative procedures.*
+*This document is provided by the SAFE Research Institute as an educational resource. It is not legal advice. It is offered to inform analysis and discussion, not to promote the adoption of any particular measure. Readers should consult qualified professionals regarding their existing insurance regulatory frameworks, constitutional provisions, and administrative procedures.*

@@ -1,7 +1,7 @@
 ---
 id: pharmacist-immunization-authority-act
-title: "Pharmacist Immunization Authority Expansion Act"
-type: "Model Legislation"
+title: "Pharmacist Immunization Authority: A Policy Analysis"
+type: "Policy Analysis"
 category: "Scope of Practice"
 summary: "Permanently expands pharmacist scope of practice to administer all FDA-approved and FDA-authorized vaccines to individuals aged three and older without requiring a physician referral or prescriptive authority, codifying flexibilities first established under the federal PREP Act during the COVID-19 public health emergency."
 stateApplicability: ["AL", "AK", "AZ", "FL", "GA", "IN", "KS", "KY", "LA", "MS", "MO", "MT", "NE", "ND", "OH", "OK", "SC", "SD", "TN", "TX", "WV", "WY"]
@@ -11,7 +11,7 @@ updatedAt: "2026-03-14"
 status: "published"
 ---
 
-# Pharmacist Immunization Authority Expansion Act
+# Pharmacist Immunization Authority: A Policy Analysis
 
 **AN ACT** relating to the practice of pharmacy; expanding the authority of licensed pharmacists to administer vaccines; removing certain referral and prescriptive authority requirements; establishing training and reporting standards; and providing for related matters.
 
@@ -159,8 +159,8 @@ This model legislation represents one approach to permanently expanding pharmaci
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome.
+The SAFE Research Institute presents this material as an educational resource and does not advocate for or against any specific legislative outcome.
 
 ---
 
-*This model legislation is provided by the SAFE Research Institute as a template for state legislatures. It is not legal advice. States should adapt this language to conform with their existing statutory frameworks, constitutional provisions, and administrative procedures.*
+*This document is provided by the SAFE Research Institute as an educational resource. It is not legal advice. It is offered to inform analysis and discussion, not to promote the adoption of any particular measure. Readers should consult qualified professionals regarding their existing statutory frameworks, constitutional provisions, and administrative procedures.*

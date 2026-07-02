@@ -1,7 +1,7 @@
 ---
 id: scientific-integrity-research-act
-title: "Scientific Integrity in Public Health Research Act"
-type: "Model Legislation"
+title: "Scientific Integrity in Public Health Research: A Policy Analysis"
+type: "Policy Analysis"
 category: "Research Freedom"
 summary: "Establishes protections for state-funded public health researchers against political interference, mandates transparent research methodology and timely publication of findings, prohibits suppression or alteration of scientific conclusions for political purposes, and creates enforceable whistleblower protections for researchers who report violations."
 stateApplicability: ["CA", "CO", "CT", "IL", "MA", "MD", "ME", "MN", "NJ", "NM", "NY", "OR", "PA", "RI", "VA", "VT", "WA"]
@@ -11,7 +11,7 @@ updatedAt: "2026-03-14"
 status: "published"
 ---
 
-# Scientific Integrity in Public Health Research Act
+# Scientific Integrity in Public Health Research: A Policy Analysis
 
 **AN ACT** relating to scientific integrity; establishing protections for state-funded public health researchers; prohibiting political interference with scientific research and findings; mandating transparent research methodology; providing whistleblower protections; and providing for related matters.
 
@@ -171,8 +171,8 @@ This model legislation represents one approach to establishing institutional pro
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome.
+The SAFE Research Institute presents this material as an educational resource and does not advocate for or against any specific legislative outcome.
 
 ---
 
-*This model legislation is provided by the SAFE Research Institute as a template for state legislatures. It is not legal advice. States should adapt this language to conform with their existing statutory frameworks, constitutional provisions, and administrative procedures.*
+*This document is provided by the SAFE Research Institute as an educational resource. It is not legal advice. It is offered to inform analysis and discussion, not to promote the adoption of any particular measure. Readers should consult qualified professionals regarding their existing statutory frameworks, constitutional provisions, and administrative procedures.*
