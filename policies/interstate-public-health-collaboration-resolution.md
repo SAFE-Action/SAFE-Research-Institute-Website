@@ -1,7 +1,7 @@
 ---
 id: interstate-public-health-collaboration-resolution
-title: "Resolution Supporting Interstate Public Health Collaboration"
-type: "Model Resolution"
+title: "Interstate Public Health Collaboration: An Educational Overview"
+type: "Policy Analysis"
 category: "Public Health Infrastructure"
 summary: "Affirms the state legislature's support for interstate public health collaborations involving shared epidemiological data, coordinated immunization guidance, and joint emergency preparedness planning among participating states."
 stateApplicability: ["All States"]
@@ -11,7 +11,7 @@ updatedAt: "2026-03-13"
 status: "published"
 ---
 
-# Resolution Supporting Interstate Public Health Collaboration
+# Interstate Public Health Collaboration: An Educational Overview
 
 > **About this document.** The following is an *annotated example* of resolution language, provided for educational illustration of how a state legislature might formally express support for interstate public health cooperation. It is offered as a template for study and adaptation, not as a recommendation by the SAFE Research Institute that any legislature adopt it or take any particular action. Resolution drafting conventions ("WHEREAS… NOW, THEREFORE, BE IT RESOLVED") are reproduced here so readers can see how such instruments are typically structured.
 
@@ -69,8 +69,8 @@ This model resolution represents one approach to formalizing interstate public h
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome. The resolution text above is an illustrative example of legislative drafting, reproduced for study; its inclusion here is not an endorsement of its adoption.
+The SAFE Research Institute presents this material as an educational resource and does not advocate for or against any specific legislative outcome. The resolution text above is an illustrative example of legislative drafting, reproduced for study; its inclusion here is not an endorsement of its adoption.
 
 ---
 
-*This model resolution is provided by the SAFE Research Institute as a template for state legislatures. It is not legal advice. States should adapt this language to conform with their existing legislative procedures and constitutional provisions.*
+*This document is provided by the SAFE Research Institute as an educational resource. It is not legal advice. It is offered to inform analysis and discussion, not to promote the adoption of any particular measure. Readers should consult qualified professionals regarding their existing legislative procedures and constitutional provisions.*

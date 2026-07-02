@@ -1,7 +1,7 @@
 ---
 id: evidence-based-immunization-guidance-act
-title: "Evidence-Based Immunization Guidance Act"
-type: "Model Legislation"
+title: "Evidence-Based Immunization Guidance: A Policy Analysis"
+type: "Policy Analysis"
 category: "Clinical Integrity"
 summary: "Authorizes state health departments to establish immunization recommendations based on guidance from recognized medical professional organizations, creating a framework for state-level immunization scheduling independent of federal advisory processes."
 stateApplicability: ["CA", "IL", "CO", "NJ", "NY", "WA", "OR", "HI", "VT", "MA", "CT", "MN", "MD", "PA", "MI"]
@@ -11,7 +11,7 @@ updatedAt: "2026-03-13"
 status: "published"
 ---
 
-# Evidence-Based Immunization Guidance Act
+# Evidence-Based Immunization Guidance: A Policy Analysis
 
 **AN ACT** relating to public health; authorizing the state department of health to establish immunization recommendations based on guidance from recognized medical professional organizations; and providing for related matters.
 
@@ -97,8 +97,8 @@ This model legislation represents one approach to establishing state-level immun
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome.
+The SAFE Research Institute presents this material as an educational resource and does not advocate for or against any specific legislative outcome.
 
 ---
 
-*This model legislation is provided by the SAFE Research Institute as a template for state legislatures. It is not legal advice. States should adapt this language to conform with their existing statutory frameworks, constitutional provisions, and administrative procedures.*
+*This document is provided by the SAFE Research Institute as an educational resource. It is not legal advice. It is offered to inform analysis and discussion, not to promote the adoption of any particular measure. Readers should consult qualified professionals regarding their existing statutory frameworks, constitutional provisions, and administrative procedures.*

@@ -1,7 +1,7 @@
 ---
 id: immunization-provider-access-expansion-act
-title: "Immunization Provider Access Expansion Act"
-type: "Model Legislation"
+title: "Expanding Immunization Provider Access: A Policy Analysis"
+type: "Policy Analysis"
 category: "Regulatory Reform"
 summary: "Expands the categories of healthcare professionals authorized to administer vaccines under appropriate supervision, including registered pharmacy technicians, certified medical assistants, and nursing students, to address immunization access gaps particularly in underserved communities."
 stateApplicability: ["NY", "TX", "FL", "OH", "GA", "NC", "AZ", "TN", "IN", "MO", "SC", "KY", "LA", "AL", "MS"]
@@ -11,7 +11,7 @@ updatedAt: "2026-03-13"
 status: "published"
 ---
 
-# Immunization Provider Access Expansion Act
+# Expanding Immunization Provider Access: A Policy Analysis
 
 **AN ACT** relating to public health; expanding the categories of health care professionals authorized to administer vaccines; establishing supervision, training, and certification requirements; and providing for related matters.
 
@@ -103,8 +103,8 @@ This model legislation represents one approach to expanding the immunization wor
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome.
+The SAFE Research Institute presents this material as an educational resource and does not advocate for or against any specific legislative outcome.
 
 ---
 
-*This model legislation is provided by the SAFE Research Institute as a template for state legislatures. It is not legal advice. States should adapt this language to conform with their existing health professional licensing frameworks, constitutional provisions, and administrative procedures.*
+*This document is provided by the SAFE Research Institute as an educational resource. It is not legal advice. It is offered to inform analysis and discussion, not to promote the adoption of any particular measure. Readers should consult qualified professionals regarding their existing health professional licensing frameworks, constitutional provisions, and administrative procedures.*

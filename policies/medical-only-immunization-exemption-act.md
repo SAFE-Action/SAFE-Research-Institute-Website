@@ -1,7 +1,7 @@
 ---
 id: medical-only-immunization-exemption-act
-title: "Medical-Only Immunization Exemption Standards Act"
-type: "Model Legislation"
+title: "Medical-Only Immunization Exemption Standards: A Policy Analysis"
+type: "Policy Analysis"
 category: "Public Health Infrastructure"
 summary: "Establishes medical-only exemption standards for school and childcare immunization requirements, permitting only physician-certified medical exemptions from vaccination schedules."
 stateApplicability: ["All States"]
@@ -11,7 +11,7 @@ updatedAt: "2026-03-13"
 status: "published"
 ---
 
-# Medical-Only Immunization Exemption Standards Act
+# Medical-Only Immunization Exemption Standards: A Policy Analysis
 
 ## Section 1: Purpose and Findings
 
@@ -103,8 +103,8 @@ This model legislation represents one approach to standardizing immunization exe
 - Fiscal impact on state budgets and healthcare systems
 - Compatibility with existing state statutes and regulatory frameworks
 
-The SAFE Research Institute presents this template as an educational resource and does not advocate for or against any specific legislative outcome. The elimination of non-medical exemptions is among the most contested issues in immunization policy, raising significant constitutional and religious-liberty questions; this template is provided to inform analysis of one approach, not to endorse it.
+The SAFE Research Institute presents this material as an educational resource and does not advocate for or against any specific legislative outcome. The elimination of non-medical exemptions is among the most contested issues in immunization policy, raising significant constitutional and religious-liberty questions; this template is provided to inform analysis of one approach, not to endorse it.
 
 ---
 
-*This model legislation is provided by the SAFE Research Institute as a template for state legislatures. It is not legal advice. States should adapt this language to conform with their existing statutory frameworks, constitutional provisions, and administrative procedures.*
+*This document is provided by the SAFE Research Institute as an educational resource. It is not legal advice. It is offered to inform analysis and discussion, not to promote the adoption of any particular measure. Readers should consult qualified professionals regarding their existing statutory frameworks, constitutional provisions, and administrative procedures.*

@@ -1,5 +1,5 @@
 /* ============================================
-   SAFE Research Institute - Model Policy Library
+   SAFE Research Institute - Evidence Resource Library
    Loads policies from local markdown files,
    renders color-coded cards with filtering.
    ============================================ */
