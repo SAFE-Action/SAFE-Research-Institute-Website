@@ -71,5 +71,12 @@ service cloud.firestore {
         && (resource.data.uid == request.auth.uid || isAdmin());
       allow update, delete: if isAdmin();
     }
+
+    // ——— Mail Queue (Trigger Email extension) ———
+    // Written only by the onVolunteerSignup Cloud Function via the Admin
+    // SDK (which bypasses these rules). Clients may never read or write it.
+    match /mail/{mailId} {
+      allow read, write: if false;
+    }
   }
 }
