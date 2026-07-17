@@ -106,10 +106,11 @@ export async function loadVolunteers(statusFilter, groupFilter) {
     let q;
 
     if (statusFilter && statusFilter !== 'all') {
+      // Filter by status only (no orderBy) so this doesn't require a
+      // composite Firestore index; results are sorted client-side below.
       q = query(
         collection(db, 'volunteers'),
-        where('status', '==', statusFilter),
-        orderBy('submittedAt', 'desc')
+        where('status', '==', statusFilter)
       );
     } else {
       q = query(
@@ -120,6 +121,14 @@ export async function loadVolunteers(statusFilter, groupFilter) {
 
     const snapshot = await getDocs(q);
     let volunteers = snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+
+    // Sort newest first client-side (covers the status-filtered branch,
+    // which no longer orders in the query).
+    volunteers.sort((a, b) => {
+      const ta = a.submittedAt && a.submittedAt.seconds ? a.submittedAt.seconds : 0;
+      const tb = b.submittedAt && b.submittedAt.seconds ? b.submittedAt.seconds : 0;
+      return tb - ta;
+    });
 
     // Client-side filter by task group if needed
     if (groupFilter && groupFilter !== 'all') {
