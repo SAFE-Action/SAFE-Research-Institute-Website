@@ -11,12 +11,9 @@ import {
   doc, updateDoc, serverTimestamp
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-// --- EmailJS Config (placeholders) ---
-const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID';
-const EMAILJS_WELCOME_TEMPLATE_ID = 'YOUR_WELCOME_TEMPLATE';
-const GAS_WEBHOOK_URL = ''; // Empty = manual mode, user fills with deployed Apps Script URL
-const GOOGLE_CHAT_INVITE_LINK = ''; // Admin configures
-const GOOGLE_CALENDAR_LINK = ''; // Admin configures
+// Volunteer onboarding emails (welcome message, chat link, calendar link) are
+// sent server-side by the onVolunteerApproved Cloud Function when a record's
+// status becomes 'approved'. The browser only writes that status change.
 
 // --- State ---
 let allVolunteers = [];
@@ -625,41 +622,11 @@ export async function approveVolunteer(volunteerId) {
       reviewedBy: 'admin'
     });
 
-    // Send welcome email via EmailJS
-    try {
-      if (typeof emailjs !== 'undefined' && EMAILJS_SERVICE_ID !== 'YOUR_EMAILJS_SERVICE_ID') {
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_WELCOME_TEMPLATE_ID, {
-          to_email: vol.email,
-          volunteer_name: vol.fullName,
-          task_group: TASK_GROUP_LABELS[vol.taskGroup] || vol.taskGroup,
-          google_chat_link: GOOGLE_CHAT_INVITE_LINK || 'Link will be provided by your team lead.',
-          calendar_link: GOOGLE_CALENDAR_LINK || 'Calendar invite will be sent separately.'
-        });
-      }
-    } catch (emailErr) {
-      console.warn('Welcome email failed (non-critical):', emailErr);
-    }
-
-    // Call webhook if configured
-    if (GAS_WEBHOOK_URL) {
-      try {
-        await fetch(GAS_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          mode: 'no-cors',
-          body: JSON.stringify({
-            action: 'volunteer_approved',
-            volunteerId: volunteerId,
-            name: vol.fullName,
-            email: vol.email,
-            taskGroup: vol.taskGroup,
-            score: vol.legitimacyScore
-          })
-        });
-      } catch (webhookErr) {
-        console.warn('Webhook call failed (non-critical):', webhookErr);
-      }
-    }
+    // Onboarding is handled server-side: setting status to 'approved' above
+    // triggers the onVolunteerApproved Cloud Function, which emails the
+    // volunteer their welcome message with task-group next steps plus one-click
+    // links to join the team chat and add the weekly meeting to their calendar.
+    // Nothing else needs to happen from the browser.
 
     // Refresh list
     await handleFilterChange();

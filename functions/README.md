@@ -1,16 +1,38 @@
-# Volunteer signup email notifications
+# Volunteer email automation
 
-`onVolunteerSignup` (in `index.js`) fires whenever a new document is created
-in the Firestore `volunteers` collection and enqueues two emails into the
-`mail` collection:
+Two Cloud Functions in `index.js` power the volunteer lifecycle. Both work by
+enqueuing messages into the Firestore `mail` collection; the
+[Firebase **Trigger Email from Firestore** extension][ext] watches that
+collection and delivers each message over SMTP. The website never writes to
+`mail` and never holds SMTP credentials.
+
+### 1. `onVolunteerSignup` — on application
+
+Fires when a new document is created in the `volunteers` collection and sends:
 
 1. **Alert** to the Foundation's monitored inboxes
    (`gregnewkirk@gmail.com`, `greg@saferi.org`, `greg@scienceandfreedom.com`).
 2. **Confirmation** to the applicant's email address.
 
-The [Firebase **Trigger Email from Firestore** extension][ext] watches the
-`mail` collection and delivers each message over SMTP. The website never
-writes to `mail` and never holds SMTP credentials.
+### 2. `onVolunteerApproved` — on approval (onboarding)
+
+Fires when a volunteer record transitions to `status: 'approved'` (i.e. when an
+admin clicks **Approve and Onboard** in the Volunteer Queue). It emails the
+volunteer a task-group-specific **welcome + onboarding** message containing:
+
+- their focus area and concrete next steps for their task group,
+- a one-click **Join the team chat** button, and
+- a one-click **Add the weekly meeting to your calendar** button (a recurring
+  Google Calendar event).
+
+It only fires on the `pending → approved` transition, so editing a record later
+(e.g. adding admin notes) never re-emails the volunteer.
+
+**Configure it:** open the `ONBOARDING` block at the top of `index.js`. The only
+value you normally need to set is `chatSpaceUrl` — paste your Google Chat space
+share link (Space settings → *Share this space*). Until you do, the chat button
+is simply omitted. The weekly-meeting defaults (Tuesday 6 PM ET) drive the
+calendar button; adjust `meeting` there if your cadence differs.
 
 ## One-time setup (Firebase console + CLI)
 
@@ -30,22 +52,30 @@ writes to `mail` and never holds SMTP credentials.
    - Leave the templates/users collection fields blank — the function sends
      the full message body.
 
-3. **Deploy the function and the updated rules.** From this repo, with the
+3. **Deploy the functions and the updated rules.** From this repo, with the
    [Firebase CLI][cli] installed and logged in (`firebase login`):
    ```bash
    firebase use safe-research-institute
    cd functions && npm install && cd ..
    firebase deploy --only functions,firestore:rules
    ```
-   No local machine? Use [Google Cloud Shell][shell] (a browser terminal):
-   clone the repo there and run the same commands — nothing to install.
+   This deploys both `onVolunteerSignup` and `onVolunteerApproved`. No local
+   machine? Use [Google Cloud Shell][shell] (a browser terminal): clone the repo
+   there and run the same commands — nothing to install.
 
 ## Test
 
-Submit a test application on `saferi.org/volunteer.html`. Within a minute you
-should receive the alert at the three inboxes and the confirmation at the test
-address. Delivery status is recorded on each `mail` document's `delivery`
-field in Firestore.
+**Signup:** Submit a test application on `saferi.org/volunteer.html`. Within a
+minute you should receive the alert at the three inboxes and the confirmation at
+the test address.
+
+**Onboarding:** In `saferi.org/admin.html` → Volunteer Queue, open that test
+application and click **Approve and Onboard**. The test address should receive
+the welcome/onboarding email with the next-steps and (if configured) the chat +
+calendar buttons.
+
+Delivery status is recorded on each `mail` document's `delivery` field in
+Firestore.
 
 To change the alert recipients, edit `ALERT_RECIPIENTS` in `index.js` and
 redeploy.
