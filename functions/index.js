@@ -25,9 +25,7 @@ setGlobalOptions({ region: 'us-central1', maxInstances: 5 });
 
 // Inboxes alerted on every new volunteer application.
 const ALERT_RECIPIENTS = [
-  'gregnewkirk@gmail.com',
-  'greg@saferi.org',
-  'greg@scienceandfreedom.com',
+  'board@scienceandfreedom.com',
 ];
 
 // Friendly labels for the stored task-group codes.
